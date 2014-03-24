@@ -1,0 +1,17 @@
+(mapc
+     (lambda (pair)
+       (if (eq (cdr pair) 'perl-mode)
+           (setcdr pair 'cperl-mode)))
+     (append auto-mode-alist interpreter-mode-alist))
+
+(add-hook 'cperl-mode-hook '(lambda ()
+   (local-set-key (kbd "RET") 'newline-and-indent)
+   (setq cperl-indent-parens-as-block t)
+   (setq fill-column 78)
+   (setq auto-fill-mode t)
+   (setq cperl-indent-level 4)
+   (setq cperl-close-paren-offset -4)
+   (setq cperl-continued-statement-offset 0)
+   (setq cperl-indent-parens-as-block t)
+   (setq require-final-newline (quote ask))
+   (auto-fill-mode)))
