@@ -14,4 +14,23 @@
    (setq cperl-continued-statement-offset 0)
    (setq cperl-indent-parens-as-block t)
    (setq require-final-newline (quote ask))
-   (auto-fill-mode)))
+   (auto-fill-mode)
+   (setq indent-tabs-mode nil)
+   (defun perltidy-region ()
+    "Run perltidy on the current region."
+    (interactive)
+    (save-excursion
+      (shell-command-on-region (point) (mark) "perltidy -q" nil t)))
+   (defun perltidy-defun ()
+     "Run perltidy on the current defun."
+     (interactive)
+     (save-excursion (mark-defun)
+		     (perltidy-region)))
+   (defun perltidy-as-required ()
+     "Rub perltidy on the current region if set otherwise on the current defun"
+     (interactive)
+     (if mark-active (perltidy-region) (perltidy-defun)))
+
+   ;; bind C-c t to tidy sensibly based on current context
+   (local-set-key (kbd "C-c t") 'perltidy-as-required)
+   ))
