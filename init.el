@@ -36,3 +36,4 @@
 (mapc 'load (directory-files module-dir nil "^[^#].*el$"))
 (server-start)
 
+(put 'upcase-region 'disabled nil)
