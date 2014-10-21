@@ -31,6 +31,6 @@
      (interactive)
      (if mark-active (perltidy-region) (perltidy-defun)))
 
-   ;; bind C-c t to tidy sensibly based on current context
-   (local-set-key (kbd "C-c t") 'perltidy-as-required)
+   ;; bind C-c p to tidy sensibly based on current context
+   (local-set-key (kbd "C-c p") 'perltidy-as-required)
    ))

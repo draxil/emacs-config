@@ -1,3 +1,5 @@
+;;; General customised keys that don't fit in a particular file somewhere
+
 (global-set-key (kbd "C-c i") 'indent-region)
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
 ;; My key before this had a sensible default in emacs:
