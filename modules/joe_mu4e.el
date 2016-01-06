@@ -21,17 +21,19 @@
 (setq mu4e-sent-folder   "/Sent")
 (setq mu4e-drafts-folder "/Drafts")
 (setq mu4e-trash-folder  "/Trash")
-(setq mu4e-archive-folder  "/Archives.2015")
+
+(setq mu4e-archive-folder  (format-time-string "/Archives.%Y"))
 
 (setq mu4e-maildir-shortcuts
-      '( ("/INBOX"     . ?i)
-         ("/Archives.2015". ?a)))
+      `( ("/INBOX"     . ?i)
+         ( ,mu4e-archive-folder . ?a)
+	 ))
 
 (setq send-mail-function 'smtpmail-send-it) ; if you use `mail'
 (setq message-send-mail-function 'smtpmail-send-it) ; if you use message/Gnus
 (setq smtpmail-default-smtp-server "office.printevolved.co.uk") ; set before loading library
 (setq smtpmail-smtp-server "office.printevolved.co.uk") ; set before loading library
 (setq smtpmail-smtp-service "25")
-(setq smtpmail-debug-info t) ; only to debug problems
+;(setq smtpmail-debug-info t) ; only to debug problems
 
-(setq mu4e-refile-folder "/Archives.2015")
+(setq mu4e-refile-folder mu4e-archive-folder)
