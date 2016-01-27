@@ -37,3 +37,6 @@
 ;(setq smtpmail-debug-info t) ; only to debug problems
 
 (setq mu4e-refile-folder mu4e-archive-folder)
+
+(add-to-list 'mu4e-bookmarks
+  '("flag:flagged"       "Flagged"     ?f))
