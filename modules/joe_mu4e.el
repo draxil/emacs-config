@@ -38,5 +38,8 @@
 
 (setq mu4e-refile-folder mu4e-archive-folder)
 
-(add-to-list 'mu4e-bookmarks
-  '("flag:flagged"       "Flagged"     ?f))
+(set 'mu4e-bookmarks
+  '(("flag:flagged"       "Flagged"     ?f)
+    ("from:jeff AND flag:unread AND NOT flag:trashed"       "jmail"     ?j)
+    ("from:jeff"       "All Jmail"     ?J)
+    ("date:today..now"                  "Today's messages"     ?t)))
