@@ -5,6 +5,7 @@
 (setq mu4e-maildir "/home/joe/Mail/Work")
 
 (setq mu4e-get-mail-command "offlineimap")
+(setq mu4e-update-interval 130)
 (setq mu4e-user-mail-address-list '("joe@printevolved.co.uk"))
 
 ;; these must start with a "/", and must exist
