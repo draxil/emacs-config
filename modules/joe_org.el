@@ -6,4 +6,4 @@
 (setq org-startup-truncated nil)
 
 (add-hook 'org-mode-hook '(lambda ()
-			    (local-set-key (kbd "C-c C-t") 'org-set-tags)))
+			    (local-set-key (kbd "C-c t") 'org-set-tags)))
