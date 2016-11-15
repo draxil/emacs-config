@@ -4,3 +4,6 @@
 (setq org-mobile-files '("~/Dropbox/org/work/work.org"
 			 "~/Dropbox/org/liff.org"))
 (setq org-startup-truncated nil)
+
+(add-hook 'org-mode-hook '(lambda ()
+			    (local-set-key (kbd "C-c C-t") 'org-set-tags)))
