@@ -7,3 +7,4 @@
 (global-set-key (kbd "C-c b") 'joe-back-to-mark)
 (global-set-key (kbd "<f12>") 'joe-open-work-org)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
