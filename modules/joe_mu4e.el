@@ -44,3 +44,7 @@
     ("from:jeff AND flag:unread AND NOT flag:trashed"       "jmail"     ?j)
     ("from:jeff"       "All Jmail"     ?J)
     ("date:today..now"                  "Today's messages"     ?t)))
+(defun joe-mu4e-hook ()
+  "Joes mu4e hook"
+  (set-variable 'fill-column 100))
+(add-hook 'mu4e-compose-mode-hook 'joe-mu4e-hook)
