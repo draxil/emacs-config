@@ -10,3 +10,7 @@
 			    (local-set-key (kbd "C-c t") 'org-set-tags)))
 ;(find-file "/home/joe/Dropbox/org/work/work.org")
 (defun joe-open-work-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/work.org"))
+(defun joe-open-work-now-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/now.org"))
+;; BULLETS!
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
