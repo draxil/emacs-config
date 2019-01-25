@@ -17,3 +17,7 @@
 ;;(global-set-key (kbd "C-x l") 'counsel-locate)
 ;;(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+
+
+(setq magit-completing-read-function 'ivy-completing-read)
+(setq projectile-completion-system 'ivy)
