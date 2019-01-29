@@ -8,6 +8,14 @@
   "top level emacs dir")
 (defvar vendor-dir (concat emacs-dir "vendor/")
   "Packages not yet available in ELPA")
+
+;; Do use-package before modules
+(eval-when-compile
+  ;; Following line is not needed if use-package.el is in ~/.emacs.d
+  (add-to-list 'load-path "<path where use-package is installed>")
+  (require 'use-package))
+
+
 (defvar module-dir (concat emacs-dir "modules/")
   "Where the real configuration happens")
 
@@ -60,7 +68,7 @@
     (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mouse)))
  '(package-selected-packages
    (quote
-    (cl-lib-highlight sane-term move-text go-scratch go-playground web-mode org-bullets ## magit-find-file gradle-mode yaml-mode tidy smart-mode-line sauron s perlcritic perl6-mode multi-term marmalade markdown-mode magit ido-ubiquitous go-mode gist full-ack deft android-mode alert)))
+    (multiple-cursors use-package cl-lib-highlight sane-term move-text go-scratch go-playground web-mode org-bullets ## magit-find-file gradle-mode yaml-mode tidy smart-mode-line sauron s perlcritic perl6-mode multi-term marmalade markdown-mode magit ido-ubiquitous go-mode gist full-ack deft android-mode alert)))
  '(sml/theme (quote dark))
  '(smtpmail-smtp-server "office.printevolved.co.uk")
  '(smtpmail-smtp-service 25))
