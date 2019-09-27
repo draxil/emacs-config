@@ -23,8 +23,11 @@
 (defun joe-open-work-now-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/now.org"))
 (defun joe-open-liff-org () "" (interactive) (find-file "/home/joe/Dropbox/org/liff.org"))
 ;; BULLETS!
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(use-package org-bullets
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+
 
 ;; time tracking
 (setq org-clock-persist 'history)
