@@ -29,3 +29,13 @@
 ;; time tracking
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+
+(setq org-todo-keywords
+      '(
+	(sequence "TODO" "BLOCK(b)" "|" "DONE(d)")
+	(sequence "BUG" "PROVEN" "|" "FIXED")
+	))
+(setq org-todo-keyword-faces
+      '(
+	("BLOCK" .  "yellow")
+	))
