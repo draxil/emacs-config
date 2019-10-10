@@ -68,7 +68,7 @@
     (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mouse)))
  '(package-selected-packages
    (quote
-    (kotlin-mode doom-modeline toml-mode restclient cargo flymake-rust flycheck-rust rust-mode use-package multiple-cursors diminish counsel ivy helm-projectile helm projectile pomodoro ack org-pomodoro cl-lib-highlight sane-term move-text go-scratch go-playground web-mode org-bullets ## magit-find-file gradle-mode yaml-mode tidy smart-mode-line sauron s perlcritic perl6-mode multi-term markdown-mode magit ido-ubiquitous go-mode gist full-ack deft android-mode alert)))
+    (helm-swoop csv-mode kotlin-mode doom-modeline toml-mode restclient cargo flymake-rust flycheck-rust rust-mode use-package multiple-cursors diminish counsel ivy helm-projectile helm projectile pomodoro ack org-pomodoro cl-lib-highlight sane-term move-text go-scratch go-playground web-mode org-bullets ## magit-find-file gradle-mode yaml-mode tidy smart-mode-line sauron s perlcritic perl6-mode multi-term markdown-mode magit ido-ubiquitous go-mode gist full-ack deft android-mode alert)))
  '(sml/theme (quote dark))
  '(smtpmail-smtp-server "office.printevolved.co.uk")
  '(smtpmail-smtp-service 25))
