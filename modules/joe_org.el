@@ -11,7 +11,7 @@
 	(org-agenda-files :maxlevel . 2)
 	("work/arch.org" :maxlevel . 2)
 	))
-
+(advice-add 'org-refile :after 'org-save-all-org-buffers)
 
 (setq org-startup-truncated nil)
 (setq org-return-follows-link 't)
