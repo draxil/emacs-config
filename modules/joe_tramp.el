@@ -1,1 +1,1 @@
-(customize-set-variable 'tramp-default-method "ssh")
+(setq tramp-default-method "ssh")
