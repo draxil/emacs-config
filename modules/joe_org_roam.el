@@ -1,6 +1,7 @@
 (use-package org-roam
   :init
-  (add-hook 'after-init-hook (org-roam-mode))
+;;  (add-hook 'after-init-hook (org-roam-mode))
+  :diminish 'org-roam-mode
   :custom
   (org-roam-directory "~/Dropbox/org-roam/")
   ; moving the db out of dropbox stops locking issues,

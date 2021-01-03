@@ -23,9 +23,6 @@
   ;; 			      (local-set-key (kbd "C-c t") 'org-set-tags)
   ;; 			      ))
 					;(find-file "/home/joe/Dropbox/org/work/work.org")
-  (defun joe-open-work-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/work.org"))
-  (defun joe-open-work-now-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/now.org"))
-  (defun joe-open-liff-org () "" (interactive) (find-file "/home/joe/Dropbox/org/liff.org"))
 
   ;; BULLETS!
   (use-package org-bullets
@@ -53,3 +50,7 @@
 	("C-c o t" . org-set-tags-command)
   )
 )
+
+(defun joe-open-work-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/work.org"))
+(defun joe-open-work-now-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/now.org"))
+(defun joe-open-liff-org () "" (interactive) (find-file "/home/joe/Dropbox/org/liff.org"))
