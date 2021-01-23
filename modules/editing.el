@@ -4,3 +4,4 @@
 (setq uniquify-ignore-buffers-re "^\\*")
 (show-paren-mode)
 (prefer-coding-system 'utf-8)
+(setq backup-directory-alist '(("." . "~/.local/my/emacs/backups")))
