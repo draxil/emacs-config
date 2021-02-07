@@ -11,6 +11,9 @@
 (global-set-key (kbd "C-<f12>") 'joe-open-work-org)
 (global-set-key (kbd "M-<f12>") 'joe-open-liff-org)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c j o") 'joe-org-link-line-to-kill)
+;; OR MORE USEFUL:
+(global-set-key (kbd "C-c o s") 'org-store-link)
 ;; TODO: should not be global
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 (global-set-key (kbd "s-t") 'tab-bar-mode)

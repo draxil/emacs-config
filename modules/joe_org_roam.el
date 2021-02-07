@@ -1,6 +1,7 @@
 (use-package org-roam
   :init
-;;  (add-hook 'after-init-hook (org-roam-mode))
+  ;;  (add-hook 'after-init-hook (org-roam-mode))
+  (use-package org-roam-dailies)
   :diminish 'org-roam-mode
   :custom
   (org-roam-directory "~/Dropbox/org-roam/")
@@ -10,6 +11,8 @@
   :config
   :bind (
 	 ("C-<f9>" . org-roam-find-file)
+	 ("<f5>". org-roam-dailies-today)
+	 ("M-<f5>". org-roam-dailies-yesterday)
 	 :map org-roam-mode-map
 	      (("C-c n l" . org-roam)
 	       ("C-c n f" . org-roam-find-file)

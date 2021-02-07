@@ -48,6 +48,8 @@
   (:map org-mode-map
 	("C-c o s" . org-insert-subheading)
 	("C-c o t" . org-set-tags-command)
+	("C-c o h" . org-hide-subtree)
+	("C-c o s" . org-store-link)
   )
 )
 
