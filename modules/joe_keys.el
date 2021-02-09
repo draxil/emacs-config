@@ -3,6 +3,7 @@
 (global-set-key (kbd "C-c i") 'indent-region)
 ;; My key before this had a sensible default in emacs, depricate?
 (global-set-key (kbd "C-c g") 'goto-line)
+(global-set-key (kbd "M-g g") 'avy-goto-line)
 ;; "go back to where I just was" - Invaluable!
 (global-set-key (kbd "C-c b") 'joe-back-to-mark)
 
