@@ -12,6 +12,7 @@
 (global-set-key (kbd "M-<f12>") 'joe-open-liff-org)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c j o") 'joe-org-link-line-to-kill)
+(global-set-key (kbd "C-c j l") 'global-linum-mode)
 ;; OR MORE USEFUL:
 (global-set-key (kbd "C-c o s") 'org-store-link)
 ;; TODO: should not be global
