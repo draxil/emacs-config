@@ -7,4 +7,10 @@
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
     )
   :diminish projectile-mode
+  :bind(
+	:map projectile-command-map
+	     (
+	      ("a" . helm-projectile-ack)
+	      )
+	)
   )
