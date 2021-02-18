@@ -3,8 +3,8 @@
        (if (eq (cdr pair) 'perl-mode)
            (setcdr pair 'cperl-mode)))
      (append auto-mode-alist interpreter-mode-alist))
-
-(add-hook 'cperl-mode-hook '(lambda ()
+(use-package cperl-mode
+  :config
    (local-set-key (kbd "RET") 'newline-and-indent)
    (setq cperl-indent-parens-as-block t)
    (setq fill-column 78)
@@ -32,5 +32,4 @@
      (if mark-active (perltidy-region) (perltidy-defun)))
 
    ;; bind C-c p to tidy sensibly based on current context
-   (local-set-key (kbd "C-c p") 'perltidy-as-required)
-   ))
+   (local-set-key (kbd "C-c p") 'perltidy-as-required))

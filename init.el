@@ -36,14 +36,6 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '(magit)
-  "A list of packages to ensure are installed at launch.")
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
-
 ;; require packages in modules/
 (mapc 'load (directory-files module-dir nil "^[^#].*el$"))
 (server-start)

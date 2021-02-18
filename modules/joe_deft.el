@@ -1,4 +1,6 @@
-(when (require 'deft nil 'noerror) 
+(use-package deft
+  :defer 2
+  :config
    (setq
       deft-extension "org"
       deft-directory "~/Dropbox/org/deft/"

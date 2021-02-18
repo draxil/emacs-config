@@ -2,7 +2,8 @@
 ;; Remove uncessary UI elements
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(fringe-mode -1)
+;; trying the fringes again? 
+;(fringe-mode -1)
 (blink-cursor-mode -1)
 (setq inhibit-startup-screen t)
 (menu-bar-mode -1)
