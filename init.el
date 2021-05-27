@@ -12,6 +12,9 @@
 (defvar module-dir (concat emacs-dir "modules/")
   "Where the real configuration happens")
 
+;; under review
+(setq gc-cons-threshold 100000000)
+
 ;; add to load path
 (add-to-list 'load-path vendor-dir)
 (add-to-list 'load-path module-dir)
