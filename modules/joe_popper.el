@@ -11,5 +11,7 @@
 	"*Go Test*"
         help-mode
         compilation-mode))
+  ;; FUTURE: if we get a window controlling thing consider popper-display-control 'user
+  ;; FUTURE: look at grouping
   (popper-mode +1)
   (popper-echo-mode +1))  
