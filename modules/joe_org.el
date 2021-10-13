@@ -53,6 +53,6 @@
   )
 )
 
-(defun joe-open-work-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/work.org"))
-(defun joe-open-work-now-org () "" (interactive) (find-file "/home/joe/Dropbox/org/work/now.org"))
-(defun joe-open-liff-org () "" (interactive) (find-file "/home/joe/Dropbox/org/liff.org"))
+(defun joe-open-work-org () "" (interactive) (find-file "~/Dropbox/org/work/work.org"))
+(defun joe-open-work-now-org () "" (interactive) (find-file "~/Dropbox/org/work/now.org"))
+(defun joe-open-liff-org () "" (interactive) (find-file "~/Dropbox/org/liff.org"))
