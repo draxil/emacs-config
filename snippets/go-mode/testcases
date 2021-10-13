@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: tcs
+# key: tcs
+# --
+func Test$1 (t *testing.T){
+
+     cases := []struct {
+     	   name string
+     }{}
+
+     for _, tc := range cases{
+     	 t.Run(tc.name, func(t *testing.T){
+
+	 })
+     }
+}

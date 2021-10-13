@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: type assertion
+# key: ta
+# --
+$1, is := $2.($3)

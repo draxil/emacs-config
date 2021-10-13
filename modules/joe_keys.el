@@ -4,6 +4,8 @@
 ;; My key before this had a sensible default in emacs, depricate?
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "M-g g") 'avy-goto-line)
+;; TODO: workout how to get this to not do all frames on THIS one maybe??
+(global-set-key (kbd "M-g M-w") 'avy-goto-word-0)
 ;; "go back to where I just was" - Invaluable!
 (global-set-key (kbd "C-c b") 'joe-back-to-mark)
 
@@ -22,6 +24,11 @@
 (global-set-key (kbd "s-T") 'tab-bar-select-tab-by-name)
 (global-set-key (kbd "M-s-t") 'tab-bar-new-tab)
 (bind-key* "<f8>" 'notmuch)
+
+(global-set-key (kbd "C-c <down>") 'windmove-down)
+(global-set-key (kbd "C-c <up>") 'windmove-up)
+(global-set-key (kbd "C-c <left>") 'windmove-left)
+(global-set-key (kbd "C-c <right>") 'windmove-right)
 
 ;;
 
