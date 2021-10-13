@@ -7,6 +7,14 @@
   ; moving the db out of dropbox stops locking issues,
   ; also no need because it's a cache so saves pointless syncs.
   (org-roam-db-location "~/.local/my/org-roam/org-roam.db")
+  (org-roam-capture-templates
+   '(("d" "default" plain "%?" :if-new
+      (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)
+      ("w" "well project" plain "* Plan\n\n* Tasks\n\n%?" :if-new
+       (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n#+filetags: :welldigital:project:wellproject:")
+       :unnarrowed t)))
+      
   :config
   (org-roam-setup)
   :bind (

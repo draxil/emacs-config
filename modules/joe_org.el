@@ -13,8 +13,22 @@
 	'((nil :maxlevel . 1)
 	  (org-agenda-files :maxlevel . 2)
 	  ("work/arch.org" :maxlevel . 2)
+	  ("liffarchive.org" :maxlevel . 1)
 	  ))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
+
+  (setq org-capture-templates
+      '(("w" "add work todo" entry (file "~/Dropbox/org/work/now.org")
+         "* TODO %?\n  %i\n")
+	("l" "add liff todo" entry (file "~/Dropbox/org/liff.org")
+         "* TODO %?\n  %i\n")
+	;; TODO a liff one?
+	))
+  (defun capture-liff ()
+    (interactive)
+    (org-capture nil "l"))
+
 
   (setq org-startup-truncated nil)
   (setq org-return-follows-link 't)
