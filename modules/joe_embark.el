@@ -1,13 +1,6 @@
 
-;; This has the marginalia because it's what we need it for and we're just testing this out right now?
-
-(use-package marginalia
-  :ensure t
-  :config
-  (marginalia-mode))
-
 (use-package embark
-  :ensure t
+  :straight t
 
   :bind
 
