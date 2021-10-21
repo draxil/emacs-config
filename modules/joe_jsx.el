@@ -85,11 +85,8 @@
       (save-excursion
         (save-restriction
 	  (json-to-single-line beg end)
+	  (joe-escape-double-quotes beg end)
 	  ))
-    (save-excursion
-      (save-restriction
-	(joe-escape-double-quotes beg end)
-	))
     )
   (print "This function operates on a region"))
 (defun joe-inflate-de-escape-json (beg end)
@@ -98,10 +95,7 @@
   (if (use-region-p)
       (save-excursion
         (save-restriction
-	  (json-pretty-print beg end)
-	  ))
-    (save-excursion
-        (save-restriction
 	  (joe-de-escape-double-quotes beg end)
-      ))
+	  (json-pretty-print (region-beginning) (region-end))
+	  ))
   (print "This function operates on a region")))
