@@ -12,3 +12,5 @@ This is my emacs configuration, which is designed to live as a .emacs.d director
 Whilst many of the actual useful things in my configuration come from:
 
 * http://emacs-fu.blogspot.co.uk/
+* https://www.youtube.com/c/SystemCrafters
+* http://ergoemacs.org/
