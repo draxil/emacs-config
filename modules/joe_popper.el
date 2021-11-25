@@ -1,5 +1,5 @@
 (use-package popper
-  :ensure t ; or :straight t
+  :straight t
   :bind (("C-#"   . popper-toggle-latest)
 	 ("C-~"   . popper-kill-latest-popup)
          ("M-#"   . popper-cycle)
