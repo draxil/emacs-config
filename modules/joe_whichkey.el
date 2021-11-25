@@ -1,7 +1,7 @@
 (use-package which-key
   :init (which-key-mode)
-  :ensure t
+  :straight t
   :defer 0
   :diminish which-key-mode
   :config
-  (setq which-key-idle-delay 0.5))
+  (setq which-key-idle-delay 3))

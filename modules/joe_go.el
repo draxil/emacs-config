@@ -9,3 +9,7 @@
 	      (("C-c t t" . go-test-current-project))
 	      (("C-c t f" . go-test-current-test))
   ))
+(defun joe-go-generate ()
+  (interactive)
+  (shell-command "bash -c 'go generate .'" "*go generate*"))
+
