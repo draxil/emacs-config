@@ -5,7 +5,10 @@
   (vertico-mode)
 
   (use-package vertico-posframe
-    :straight t)
+    :straight t
+    :init
+    (vertico-posframe-mode)
+    )
 
   ;; Needed for completion at point
   (setq completion-in-region-function
