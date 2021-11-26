@@ -4,11 +4,27 @@
   :init
   (vertico-mode)
 
+  (use-package vertico-posframe
+    :straight t)
+
+  ;; Needed for completion at point
+  (setq completion-in-region-function
+      (lambda (&rest args)
+        (apply (if vertico-mode
+                   #'consult-completion-in-region
+                 #'completion--in-region)
+               args)))
+
+  ;; This enables consults enhanced competing read multiple.
+  ;; honestly I'm not sure I'm getting any use of this yet?
+  (advice-add #'completing-read-multiple
+            :override #'consult-completing-read-multiple)
+  
   ;; Grow and shrink the Vertico minibuffer
   ;;   (setq vertico-resize t)
 
   ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
-  ;; (setq vertico-cycle t)
+   (setq vertico-cycle t)
   :bind
   ("M-y" . consult-yank-from-kill-ring)
   )
@@ -33,6 +49,7 @@
   :init
   (savehist-mode))
 
+;; TODO: moveme?
 ;; A few more useful configurations...
 (use-package emacs
   :init
