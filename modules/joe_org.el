@@ -16,6 +16,7 @@
 	  ("liffarchive.org" :maxlevel . 1)
 	  ))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
+  (advice-add 'org-clock-out :after 'org-save-all-org-buffers)
 
 
   (setq org-capture-templates
