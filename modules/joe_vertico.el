@@ -21,7 +21,11 @@
   ;; This enables consults enhanced competing read multiple.
   ;; honestly I'm not sure I'm getting any use of this yet?
   (advice-add #'completing-read-multiple
-            :override #'consult-completing-read-multiple)
+              :override #'consult-completing-read-multiple)
+
+  ;; workaround for notmuch tag issue
+  (advice-add #'notmuch-read-tag-changes :filter-return (lambda (x) (mapcar #'string-trim x)))
+  
   
   ;; Grow and shrink the Vertico minibuffer
   ;;   (setq vertico-resize t)
