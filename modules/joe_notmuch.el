@@ -1,5 +1,6 @@
 ;;; notmuch -- email
 (use-package notmuch
+  :straight t
   :config
   (setq notmuch-fcc-dirs '(("joe@higton.uk" . "sent +sent -unread -new -inbox")
 			   ))
@@ -8,6 +9,7 @@
 	  '(
 	    lambda()
 		  (auto-fill-mode -1)
+		  (flyspell-mode 1)
 		  ))
 
   )
