@@ -26,3 +26,8 @@
   "run go mod tidy"
   (interactive)
   (shell-command "go mod tidy" "*go mod*"))
+
+(defun joe-go-package-to-kill ()
+  "get the current package into the kill-ring"
+  (interactive)
+  (kill-new (chomp (shell-command-to-string "go list"))))
