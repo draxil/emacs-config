@@ -13,6 +13,7 @@
 (bind-key* "<f12>" 'joe-open-work-now-org)
 (global-set-key (kbd "C-<f12>") 'joe-open-work-org)
 (global-set-key (kbd "M-<f12>") 'joe-open-liff-org)
+
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c j o") 'joe-org-link-line-to-kill)
 (global-set-key (kbd "C-c j l") 'global-linum-mode)
@@ -30,6 +31,17 @@
 (global-set-key (kbd "C-c <left>") 'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 
+(global-set-key (kbd "M-S-<down>") 'shrink-window)
+(global-set-key (kbd "M-S-<up>") 'enlarge-window)
 ;;
 
 
+; on trial
+(global-set-key (kbd "<f6>")
+		(lambda ()
+		  (interactive)
+		  (jump-to-register ?0)))
+(global-set-key (kbd "M-<f6>")
+		(lambda ()
+		  (interactive)
+		  (point-to-register ?0)))
