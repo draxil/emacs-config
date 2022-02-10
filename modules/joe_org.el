@@ -59,6 +59,10 @@
 	'(
 	  ("BLOCK" .  "yellow")
 	  ))
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((restclient . t)))
   :bind
   (:map org-mode-map
 	("C-c o s" . org-insert-subheading)
