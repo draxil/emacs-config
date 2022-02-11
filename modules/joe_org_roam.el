@@ -18,7 +18,7 @@
   :config
   (org-roam-setup)
   :bind (
-	 ("C-<f9>" . org-roam-node-find)
+	 ("<f9>" . org-roam-node-find)
 	 ("<f5>". org-roam-dailies-goto-today)
 	 ("M-<f5>". org-roam-dailies-goto-yesterday)
 	 :map org-roam-mode-map
