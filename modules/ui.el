@@ -13,3 +13,5 @@
 (column-number-mode t)
 (size-indication-mode t)
 ;; TODO: use themes, remove the stuff from custom?
+
+(setq use-dialog-box nil)
