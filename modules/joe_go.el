@@ -1,7 +1,13 @@
 
 (use-package go-mode
+  :straight t
   :config
   (add-hook 'before-save-hook #'gofmt-before-save)
+  (use-package gotest
+    :straight t
+    :config
+    (setq go-test-args "-tags=*")
+    )
   (setq-local show-trailing-whitespace t)
   :hook
   (go-mode . (lambda()
@@ -12,7 +18,20 @@
 	 :map go-mode-map
 	      (("C-c t t" . go-test-current-project))
 	      (("C-c t f" . go-test-current-test))
-  ))
+	      (("C-c t u" . joe-go-test-unit-mode))
+	      ))
+
+
+;; TODO make this a toggle
+(defun joe-go-test-unit-mode ()
+  (interactive)
+  (setq-local go-test-args "-tags=unit"))
+
+(defun joe-go-test-no-tag-mode ()
+  (interactive)
+  (setq-local go-test-args ""))
+
+
 (defun joe-go-generate ()
   (interactive)
   (shell-command "bash -c 'go generate .'" "*go generate*"))
