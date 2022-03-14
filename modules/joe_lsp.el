@@ -6,7 +6,10 @@
   :hook (
 	 (go-mode . lsp)
 	 (lsp-mode . lsp-enable-which-key-integration)
-	 ))
+	 )
+  :config
+  (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
+  )
 
 
 ;; Optional - provides fancier overlays.
