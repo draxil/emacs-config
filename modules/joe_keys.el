@@ -25,6 +25,7 @@
 (global-set-key (kbd "s-T") 'tab-bar-select-tab-by-name)
 (global-set-key (kbd "M-s-t") 'tab-bar-new-tab)
 (bind-key* "<f8>" 'notmuch)
+(bind-key* "<f4>" 'ace-window)
 
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 (global-set-key (kbd "C-c <up>") 'windmove-up)

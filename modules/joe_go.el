@@ -6,13 +6,13 @@
   (use-package gotest
     :straight t
     :config
-    (setq go-test-args "-tags=*")
     )
   (setq-local show-trailing-whitespace t)
   :hook
   (go-mode . (lambda()
 	       (display-line-numbers-mode)
 	       (flyspell-prog-mode)
+	       (joe-go-test-all-tags)
 	       ))
   :bind (
 	 :map go-mode-map
@@ -23,9 +23,9 @@
 
 
 ;; TODO make this a toggle
-(defun joe-go-test-unit-mode ()
+(defun joe-go-test-all-tags ()
   (interactive)
-  (setq-local go-test-args "-tags=unit"))
+  (setq-local go-test-args "-tags=unit,'',integration"))
 
 (defun joe-go-test-no-tag-mode ()
   (interactive)
