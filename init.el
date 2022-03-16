@@ -46,8 +46,9 @@
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+	     '("melpa" . "https://melpa.org/packages/")
+	     '("elpa" . "https://elpa.gnu.org/packages/")
+	     )
 
 
 (package-initialize)
