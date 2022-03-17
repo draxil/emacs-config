@@ -1,4 +1,4 @@
 (use-package code-review
-  :ensure t
+  :straight t
   :config
   (setq code-review-lgtm-message "✅"))
