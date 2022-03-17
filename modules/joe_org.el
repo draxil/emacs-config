@@ -1,5 +1,5 @@
 (use-package org
-  :ensure t
+  :straight t
   :config
   (setq org-directory "~/Dropbox/org")
   (setq org-mobile-inbox-for-pull "~/Dropbox/org/in.org")
