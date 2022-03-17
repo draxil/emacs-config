@@ -8,6 +8,9 @@
     :straight t
     :init
     (vertico-posframe-mode)
+    (setq vertico-posframe-parameters
+      '((left-fringe . 2)
+        (right-fringe . 2)))
     )
 
   ;; Needed for completion at point
