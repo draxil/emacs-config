@@ -25,6 +25,7 @@
 (global-set-key (kbd "s-T") 'tab-bar-select-tab-by-name)
 (global-set-key (kbd "M-s-t") 'tab-bar-new-tab)
 (bind-key* "<f8>" 'notmuch)
+(bind-key* "<f4>" 'ace-window)
 
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 (global-set-key (kbd "C-c <up>") 'windmove-up)
@@ -34,8 +35,8 @@
 (global-set-key (kbd "M-S-<down>") 'shrink-window)
 (global-set-key (kbd "M-S-<up>") 'enlarge-window)
 ;;
-
-
+(global-set-key (kbd "C-c j b") 'beacon-blink)
+(global-set-key (kbd "C-c C-j") 'joe/body)
 ; on trial
 (global-set-key (kbd "<f6>")
 		(lambda ()

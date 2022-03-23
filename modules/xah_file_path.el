@@ -51,3 +51,9 @@ to `kill-ring', in the org link format.
   (concat (buffer-file-name) "::" (number-to-string (line-number-at-pos))))
 
 ;; version of the above that does the same but with the org line link syntax (/x/file.go::123)
+
+(defun joe-buffer-name-to-kill()
+  "copy just the buffer-file-name to kill"
+  (interactive)
+  (kill-new
+   (buffer-name)))

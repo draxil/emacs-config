@@ -1,5 +1,5 @@
 (use-package org
-  :ensure t
+  :straight t
   :config
   (setq org-directory "~/Dropbox/org")
   (setq org-mobile-inbox-for-pull "~/Dropbox/org/in.org")
@@ -41,10 +41,13 @@
 
   ;; BULLETS!
   (use-package org-bullets
+    :straight t
     :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-
+  ;; Links to git
+  (use-package orgit
+    :straight t)
 
   ;; time tracking
   (setq org-clock-persist 'history)
@@ -75,3 +78,4 @@
 (defun joe-open-work-org () "" (interactive) (find-file "~/Dropbox/org/work/work.org"))
 (defun joe-open-work-now-org () "" (interactive) (find-file "~/Dropbox/org/work/now.org"))
 (defun joe-open-liff-org () "" (interactive) (find-file "~/Dropbox/org/liff.org"))
+
