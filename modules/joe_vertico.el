@@ -4,12 +4,13 @@
   :init
   (vertico-mode)
 
-  ;; vertico in a posframe
-  (use-package vertico-posframe
-    :straight `(vertico-posframe :type git :host github :repo "tumashu/vertico-posframe")
-    :init
-    (vertico-posframe-mode)
-    (setq vertico-posframe-truncate-lines nil))
+  ;; vertico in a posframe, unless we're not in X.
+  (if (window-system)
+      (use-package vertico-posframe
+	:straight `(vertico-posframe :type git :host github :repo "tumashu/vertico-posframe")
+	:init
+	(vertico-posframe-mode)
+	(setq vertico-posframe-truncate-lines nil)))
 
   ;; Needed for completion at point
   (setq completion-in-region-function
