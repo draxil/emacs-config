@@ -13,6 +13,7 @@
 	       (display-line-numbers-mode)
 	       (flyspell-prog-mode)
 	       (joe-go-test-all-tags)
+	       (origami-mode)
 	       ))
   :bind (
 	 :map go-mode-map
