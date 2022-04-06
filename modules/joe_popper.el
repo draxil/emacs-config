@@ -10,6 +10,7 @@
         "Output\\*$"
         "\\*Async Shell Command\\*"
 	"*Go Test*"
+	"*rinj-ginkgo*"
         help-mode
         compilation-mode))
   ;; FUTURE: if we get a window controlling thing consider popper-display-control 'user

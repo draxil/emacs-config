@@ -9,9 +9,21 @@
 (defun rinj-calc-args ()
   (if (string= rinj-ginkgo-extra-focus "")
       ""
-      (format "--focus %s" (shell-quote-argument rinj-ginkgo-extra-focus))))
+      (format "--focus \"%s\"" (shell-quote-argument rinj-ginkgo-extra-focus))))
 
 (defun rinj-set-extra-focus (focus)
   (interactive "sFOCUS: ")
   (setq rinj-ginkgo-extra-focus focus)
   )
+
+;; (define-transient-command rinj-test-menu ()
+;;   "RI Injector Test"
+;;   ["Tags"
+;;    ("-i" "integratrion" "--tags=integration")
+;;    ("-u" "unit" "--tags=unit")
+;;    ]
+;;   ["Actions"
+;;    ("t" "run ginkgo test" rinj-ginkgo)]
+;;   )
+
+;; (rinj-test-menu)
