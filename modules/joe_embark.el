@@ -5,7 +5,6 @@
   :bind (
 	 (
 	  ("C-." . embark-act)
-	  ("C-;" . embark-dwim)
 	  ("C-h B" . embark-bindings)
 	  )
   )
@@ -27,8 +26,6 @@
              (call-interactively (symbol-function ',fn)))))))
 
   :config
-  ;; Nice replacement for helm-ack
-  (define-key embark-identifier-map "R" #'consult-ripgrep)
   ;; open things in ace
   (define-key embark-file-map     (kbd "o") (my/embark-ace-action find-file))
   (define-key embark-buffer-map   (kbd "o") (my/embark-ace-action switch-to-buffer))
