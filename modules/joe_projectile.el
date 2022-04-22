@@ -1,16 +1,18 @@
-(use-package helm-projectile
+(use-package projectile
+  :straight t
   :init
-  (progn
-    (helm-projectile-on)
-    (projectile-mode +1)
-    (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (projectile-mode +1)
+  :config
+  (setq projectile-completion-system 'default)
+  (use-package helm-projectile
+    :straight t
     )
-  :diminish projectile-mode
-  :bind(
-	:map projectile-command-map
-	     (
-	      ("a" . helm-projectile-ack)
-	      )
-	)
+  :bind
+  ( :map projectile-mode-map (
+	 ("s-p" . projectile-command-map)
+	 )
+	 :map projectile-command-map (
+ 	      ("a" . helm-projectile-ack)
+	 )
   )
+)
