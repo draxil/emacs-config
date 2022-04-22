@@ -1,16 +1,14 @@
 
 (use-package embark
   :straight t
-
-  :bind
-
-  ;; TODO: not sure I want all this top level key real-estate on this.
-  ;; when sure... should maybe be in joe-keys?
   
-  (("C-." . embark-act)         ;; pick some comfortable binding
-
-   ("C-;" . embark-dwim)        ;; good alternative: M-.
-   ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
+  :bind (
+	 (
+	  ("C-." . embark-act)
+	  ("C-;" . embark-dwim)
+	  ("C-h B" . embark-bindings)
+	  )
+  )
 
   :init
 
@@ -28,18 +26,20 @@
              (aw-switch-to-window (aw-select nil))
              (call-interactively (symbol-function ',fn)))))))
 
-  (define-key embark-file-map     (kbd "o") (my/embark-ace-action find-file))
-  (define-key embark-buffer-map   (kbd "o") (my/embark-ace-action switch-to-buffer))
-  (define-key embark-bookmark-map (kbd "o") (my/embark-ace-action bookmark-jump))
-
   :config
   ;; Nice replacement for helm-ack
   (define-key embark-identifier-map "R" #'consult-ripgrep)
+  ;; open things in ace
+  (define-key embark-file-map     (kbd "o") (my/embark-ace-action find-file))
+  (define-key embark-buffer-map   (kbd "o") (my/embark-ace-action switch-to-buffer))
+  (define-key embark-bookmark-map (kbd "o") (my/embark-ace-action bookmark-jump))
+  
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
                '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
                  nil
                  (window-parameters (mode-line-format . none)))))
+
 
 ;; ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
