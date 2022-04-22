@@ -17,10 +17,14 @@
 	       ))
   :bind (
 	 :map go-mode-map
-	      (("C-c t t" . go-test-current-project))
-	      (("C-c t f" . go-test-current-test))
-	      (("C-c t u" . joe-go-test-unit-mode))
-	      ))
+	      (
+	       ("C-c t t" . go-test-current-project)
+	       ("C-c t f" . go-test-current-test)
+	       ("C-c t u" . joe-go-test-unit-mode)
+	       ("M-s f" . (lambda()
+			    (interactive)
+			    (consult-line "func ")))
+	       )))
 
 
 ;; TODO make this a toggle
