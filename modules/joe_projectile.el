@@ -12,7 +12,10 @@
 	 ("s-p" . projectile-command-map)
 	 )
 	 :map projectile-command-map (
- 	      ("a" . helm-projectile-ack)
+ 				      ("a" . helm-projectile-ack)
+				      ;; this probably will replace ^^
+				      ("r" . (lambda() (interactive) (consult-ripgrep (projectile-project-root))))
 	 )
   )
 )
+
