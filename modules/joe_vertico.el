@@ -4,13 +4,8 @@
   :init
   (vertico-mode)
 
-  ;; vertico in a posframe, unless we're not in X.
-  (if (window-system)
-      (use-package vertico-posframe
-	:straight `(vertico-posframe :type git :host github :repo "tumashu/vertico-posframe")
-	:init
-	(vertico-posframe-mode)
-	(setq vertico-posframe-truncate-lines nil)))
+  ;; I want the exensions available..
+  (add-to-list 'load-path (concat emacs-dir "straight/repos/vertico/extensions/"))
 
   ;; Needed for completion at point
   (setq completion-in-region-function
@@ -80,3 +75,20 @@
 
   ;; Enable recursive minibuffers
   (setq enable-recursive-minibuffers t))
+
+(use-package vertico-buffer
+  :after vertico
+  :init
+  (load-library "vertico-buffer")
+  (vertico-buffer-mode))
+
+;; temporarily replaced by vertico buffer, see how we feel?
+;; vertico in a posframe, unless we're not in X.
+;;(if (window-system)
+    ;; (use-package vertico-posframe
+    ;; :after vertico
+    ;; 	:straight `(vertico-posframe :type git :host github :repo "tumashu/vertico-posframe")
+    ;; 	:init
+    ;; 	(vertico-posframe-mode)
+    ;; 	(setq vertico-posframe-truncate-lines nil))
+;;    )
