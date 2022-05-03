@@ -45,3 +45,9 @@
             (replace-match " "))))
     (print "This function operates on a region")))
 
+(defun joe-chars-in-region (beg end)
+    "count characters in the region"
+  (interactive "r")
+  (if (use-region-p)
+      (message (format "%s" (- end beg)))
+    (message "This function operates on a region")))
