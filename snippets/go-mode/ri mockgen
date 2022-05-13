@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: ri mockgen
+# key: mg
+# --
+//go:generate mockgen -package $1 -source=$1.go -destination $1_mock_test.go
