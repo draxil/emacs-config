@@ -3,18 +3,19 @@
 ;; Adapted from stevendanna's emacs-config
 ;; https://github.com/stevendanna/emacs-config
 
-
 ;; get straight sorted first:
+(defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
       (bootstrap-version 5))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
-        (url-retrieve-synchronously
+         (url-retrieve-synchronously
          "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
          'silent 'inhibit-cookies)
       (goto-char (point-max))
-      (eval-print-last-sexp)))
+      (eval-print-last-sexp))
+    )
   (load bootstrap-file nil 'nomessage))
 (straight-use-package 'use-package)
 
@@ -28,8 +29,7 @@
 (defvar module-dir (concat emacs-dir "modules/")
   "Where the real configuration happens")
 
-;; under review
-(setq gc-cons-threshold 100000000)
+(setq gc-cons-threshold (* 50 1000 1000))
 
 ;; add to load path
 (add-to-list 'load-path vendor-dir)
@@ -68,3 +68,5 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+(setq gc-cons-threshold (* 2 1000 1000))
