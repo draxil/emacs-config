@@ -1,4 +1,5 @@
 (use-package flyspell
-  :init
+  :defer 4
+  :config
   (unbind-key "C-;" flyspell-mode-map)
   )

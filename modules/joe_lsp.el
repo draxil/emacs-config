@@ -18,4 +18,4 @@
 ;  :ensure t
 ;  :commands lsp-ui-mode)
 
-(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+;(use-package helm-lsp :commands helm-lsp-workspace-symbol)

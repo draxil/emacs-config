@@ -1,5 +1,6 @@
 (use-package projectile
   :straight t
+  :defer 2
   :init
   (projectile-mode +1)
   :config
