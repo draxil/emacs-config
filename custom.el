@@ -26,7 +26,7 @@
  '(org-habit-show-all-today t)
  '(org-log-into-drawer t)
  '(org-modules
-   '(org-habit org-checklist org-expiry org-notify org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m org-mouse))
+   '(org-checklist org-expiry org-notify org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-habit org-mouse))
  '(package-selected-packages
    '(eslint-fix jest jest-test-mode origami rjsx-mode editorconfig company add-node-modules-path tide perspective forge avy helm-ag ag coverage logview typescript-mode csharp-mode org-jira eglot yasnippet-snippets helm-lsp lsp-ui lsp-mode bbdb http-post-simple http org-alert notmuch org-mime htmlize dumb-jump which-key helm-themes haskell-mode vterm-toggle vterm org-roam pomidor json-mode git-identity oauth2 request websocket el-get slack ql helm-swoop csv-mode kotlin-mode doom-modeline toml-mode restclient cargo flymake-rust flycheck-rust rust-mode use-package multiple-cursors diminish counsel ivy helm-projectile helm projectile pomodoro ack org-pomodoro cl-lib-highlight sane-term move-text go-scratch go-playground web-mode org-bullets ## magit-find-file gradle-mode yaml-mode tidy smart-mode-line sauron s perlcritic perl6-mode multi-term magit ido-ubiquitous go-mode gist full-ack deft android-mode alert))
  '(restclient-same-buffer-response-name "*HTTP Response (restclient)*")
