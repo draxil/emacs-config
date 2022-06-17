@@ -51,3 +51,9 @@
   (if (use-region-p)
       (message (format "%s" (- end beg)))
     (message "This function operates on a region")))
+
+(defun joe-clear-buffer ()
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (delete-region (buffer-end 0) (buffer-end 1)))))
