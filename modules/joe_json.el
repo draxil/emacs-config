@@ -41,3 +41,10 @@
   (yank)
   (json-pretty-print-buffer)
   (js-mode))
+
+(defun joe-json-to-new-buffer ()
+  "put json in a new buffer and format it"
+  (interactive)
+  (switch-to-buffer (generate-new-buffer "pasted.json"))
+  (joe-replace-json-buffer))
+  
