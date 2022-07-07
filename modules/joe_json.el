@@ -40,7 +40,7 @@
   (joe-clear-buffer)
   (yank)
   (json-pretty-print-buffer)
-  (js-mode))
+  (json-mode))
 
 (defun joe-json-to-new-buffer ()
   "put json in a new buffer and format it"
