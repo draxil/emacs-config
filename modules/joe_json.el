@@ -48,3 +48,6 @@
   (switch-to-buffer (generate-new-buffer "pasted.json"))
   (joe-replace-json-buffer))
   
+
+(use-package json-mode
+  :straight t)
