@@ -50,4 +50,6 @@
   
 
 (use-package json-mode
-  :straight t)
+  :straight t
+  :config
+  (setq indent-tabs-mode nil))
