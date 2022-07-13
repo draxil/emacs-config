@@ -122,3 +122,9 @@
 		       )))
 
 
+(defun ri-make-pbb-lambda-dirs ()
+  (interactive)
+  (make-directory "cmd")
+  (make-directory "internal")
+  (make-directory "internal/handler")
+  (make-directory "internal/service"))
