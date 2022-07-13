@@ -17,6 +17,8 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c j o") 'joe-org-link-line-to-kill)
 (global-set-key (kbd "C-c j l") 'global-linum-mode)
+;; toggle indent guides on & off
+(global-set-key (kbd "C-c j i") 'highlight-indent-guides-mode)
 ;; OR MORE USEFUL:
 (global-set-key (kbd "C-c o s") 'org-store-link)
 ;; TODO: should not be global
