@@ -36,8 +36,6 @@
 
 (global-set-key (kbd "M-S-<down>") 'shrink-window)
 (global-set-key (kbd "M-S-<up>") 'enlarge-window)
-;;
-(global-set-key (kbd "C-c j b") 'beacon-blink)
 (global-set-key (kbd "C-c C-j") 'joe/body)
 ; on trial
 (global-set-key (kbd "<f6>")
