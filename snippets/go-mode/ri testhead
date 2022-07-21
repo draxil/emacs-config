@@ -5,3 +5,5 @@
 // +build $1
 
 package $2_test
+
+import "testing"
