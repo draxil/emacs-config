@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: buildtag
+# key: bt
+# --
+// +build $1

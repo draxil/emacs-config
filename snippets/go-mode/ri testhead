@@ -1,0 +1,7 @@
+# -*- mode: go -*-
+# name: ri test header
+# key: rith
+# --
+// +build $1
+
+package $2_test
