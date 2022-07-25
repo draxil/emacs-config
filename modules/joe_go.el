@@ -15,6 +15,12 @@
 	       (joe-go-test-all-tags)
 	       ;; TRYING INSTEAD OF ORIGAMI
 	       (yafolding-mode)
+
+	       ;; make sure golangci-lint is run after the lsp checker
+	       (flycheck-add-next-checker
+		'lsp
+		'golangci-lint)
+	       
 	       ))
   :bind (
 	 :map go-mode-map
