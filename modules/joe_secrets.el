@@ -1,0 +1,5 @@
+(setq epg-gpg-program "gpg2")
+(setq joe-secrets-file "~/.local/my/emacs/secrets.el.gpg")
+(defun joe-load-secrets ()
+  (if (file-readable-p joe-secrets-file)
+      (load-library joe-secrets-file)))
