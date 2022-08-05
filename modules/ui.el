@@ -15,3 +15,10 @@
 ;; TODO: use themes, remove the stuff from custom?
 
 (setq use-dialog-box nil)
+
+;; TODO: less crude window management, but:
+;; I basically never want a vertical split
+;; And if I do I'll C-x 3
+(setq
+   split-width-threshold 9999999999
+   split-height-threshold 0)
