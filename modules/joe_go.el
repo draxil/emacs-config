@@ -17,9 +17,11 @@
 	       (yafolding-mode)
 
 	       ;; make sure golangci-lint is run after the lsp checker
-	       (flycheck-add-next-checker
-		'lsp
-		'golangci-lint)
+	       (if (bound-and-true-p lsp-mode)
+		   (flycheck-add-next-checker
+		    'lsp
+		    'golangci-lint)
+		 )
 	       
 	       ))
   :bind (
