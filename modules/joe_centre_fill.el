@@ -1,6 +1,8 @@
-(defun joe-centre-fill ()
-  (interactive)
-  (visual-fill-column-mode)
-  (setq-local visual-fill-column-width 80)
-  (setq-local visual-fill-column-center-text 't))
-  
+
+(define-minor-mode joe-centre-fill-mode
+  "minor mode to do center and fill"
+  :version 1
+  (progn
+    (visual-fill-column-mode 'toggle)
+    (setq-local visual-fill-column-width 80)
+    (setq-local visual-fill-column-center-text 't)))
