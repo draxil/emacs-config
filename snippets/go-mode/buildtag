@@ -2,4 +2,4 @@
 # name: buildtag
 # key: bt
 # --
-// +build $1
+//go:build $1
