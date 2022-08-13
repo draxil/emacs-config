@@ -6,6 +6,7 @@
   :config
   (setq shackle-rules '(
 			("*vertico-buffer*" :align below :popup t)
+			("Vertico" :align below :popup t :regexp t)
 			("*vterm*" :align below :popup t)
 			("*Go Test*" :align below :popup t)
 			)
