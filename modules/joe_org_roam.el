@@ -3,7 +3,7 @@
   (setq org-roam-v2-ack t)
   :diminish 'org-roam-mode
   :custom
-  (org-roam-directory "~/Dropbox/org-roam/")
+  (org-roam-directory "~/Nextcloud/org-roam/")
   ; moving the db out of dropbox stops locking issues,
   ; also no need because it's a cache so saves pointless syncs.
   (org-roam-db-location "~/.local/my/org-roam/org-roam.db")

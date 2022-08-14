@@ -1,13 +1,19 @@
+
+(setq org-directory "~/Nextcloud/org")
+
+(defun joe-org-file (filename)
+  "find one of my org files"
+  (concat org-directory "/" filename ".org"))
+
 (use-package org
   :straight t
   :config
-  (setq org-directory "~/Dropbox/org")
-  (setq org-mobile-inbox-for-pull "~/Dropbox/org/in.org")
-  (setq org-mobile-directory "~/Dropbox/MobileOrg")
-  (setq org-mobile-files '("~/Dropbox/org/work/work.org"
-			   "~/Dropbox/org/liff.org"))
+  
+  (setq org-mobile-inbox-for-pull (joe-org-file "in"))
   (setq org-agenda-files
-	'("~/Dropbox/org/liff.org" "~/Dropbox/org/work/now.org" "~/Dropbox/org/work/work.org"))
+	`(,(joe-org-file "liff")
+	  ,(joe-org-file "now")
+	  ,(joe-org-file "liffnow")))
 
   (setq org-refile-targets
 	'((nil :maxlevel . 1)
@@ -20,11 +26,10 @@
 
 
   (setq org-capture-templates
-      '(("w" "add work todo" entry (file "~/Dropbox/org/work/now.org")
+      '(("w" "add work todo" entry (file (joe-org-file "now"))
          "* TODO %?\n  %i\n")
-	("l" "add liff todo" entry (file "~/Dropbox/org/liff.org")
+	("l" "add liff todo" entry (file (joe-org-file "liffnow"))
          "* TODO %?\n  %i\n")
-	;; TODO a liff one?
 	))
   (defun capture-liff ()
     (interactive)
@@ -77,7 +82,8 @@
   )
 )
 
-(defun joe-open-work-org () "" (interactive) (find-file "~/Dropbox/org/work/work.org"))
-(defun joe-open-work-now-org () "" (interactive) (find-file "~/Dropbox/org/work/now.org"))
-(defun joe-open-liff-org () "" (interactive) (find-file "~/Dropbox/org/liff.org"))
+(defun joe-open-work-org () "" (interactive) (find-file (joe-org-file "work")))
+(defun joe-open-work-now-org () "" (interactive) (find-file (joe-org-file "now")))
+(defun joe-open-liff-org () "" (interactive) (find-file (joe-org-file "liff")))
+(defun joe-open-liff-now-org () "" (interactive) (find-file (joe-org-file "liff")))
 
