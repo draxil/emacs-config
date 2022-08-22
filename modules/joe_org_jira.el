@@ -12,4 +12,4 @@
 (defun joe-org-jira-to-kill ()
   "put a JIRA link into the kill ring, tidying up the value"
   (interactive)
-  (kill-new (string-replace "description: " "" (org-store-link nil nil))))
+  (kill-new (string-replace "[description: " "[" (org-store-link nil nil))))
