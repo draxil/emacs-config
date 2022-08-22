@@ -16,10 +16,10 @@
 	  ,(joe-org-file "liffnow")))
 
   (setq org-refile-targets
-	'((nil :maxlevel . 1)
+	`((nil :maxlevel . 1)
 	  (org-agenda-files :maxlevel . 2)
-	  ("work/arch.org" :maxlevel . 2)
-	  ("liffarchive.org" :maxlevel . 1)
+	  (,(joe-org-file "work") :maxlevel . 2)
+	  (,(joe-org-file "liffarchive") :maxlevel . 1)
 	  ))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (advice-add 'org-clock-out :after 'org-save-all-org-buffers)
