@@ -13,7 +13,7 @@
 (bind-key* "<f12>" 'joe-open-work-now-org)
 (global-set-key (kbd "C-<f12>") 'joe-open-work-org)
 (global-set-key (kbd "M-<f12>") 'joe-open-liff-now-org)
-(bind-key* "C-c <F12>" 'joe-open-liff-org)
+(bind-key* "C-c <f12>" 'joe-open-liff-org)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c j o") 'joe-org-link-line-to-kill)
