@@ -85,5 +85,5 @@
 (defun joe-open-work-org () "" (interactive) (find-file (joe-org-file "work")))
 (defun joe-open-work-now-org () "" (interactive) (find-file (joe-org-file "now")))
 (defun joe-open-liff-org () "" (interactive) (find-file (joe-org-file "liff")))
-(defun joe-open-liff-now-org () "" (interactive) (find-file (joe-org-file "liff")))
+(defun joe-open-liff-now-org () "" (interactive) (find-file (joe-org-file "liffnow")))
 
