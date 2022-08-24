@@ -66,6 +66,6 @@
   (kill-new (chomp (shell-command-to-string "go list"))))
 
 (use-package ginkgo-mode
-  :straight (ginkgo-mode :type git :host github :repo "draxil/ginkgo-mode")
+  :straight (ginkgo-mode :type git :host github :repo "garslo/ginkgo-mode")
   :custom
   (ginkgo-flags "-tags=unit" "run unit tests by default"))
