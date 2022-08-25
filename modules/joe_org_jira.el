@@ -7,7 +7,11 @@
    org-jira-custom-jqls  '(
     (:jql "project = SVP AND assignee = currentUser() and status not in ('Done', 'Rejected') ORDER BY created DESC"
           :limit 10
-          :filename "my-active"))))
+          :filename "my-active")))
+  :bind(
+	:map org-jira-entry-mode-map
+	     ("C-c j s" . joe-org-jira-to-kill)
+  ))
 
 (defun joe-org-jira-to-kill ()
   "put a JIRA link into the kill ring, tidying up the value"
