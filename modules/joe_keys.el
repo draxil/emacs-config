@@ -38,6 +38,7 @@
 (global-set-key (kbd "M-S-<down>") 'shrink-window)
 (global-set-key (kbd "M-S-<up>") 'enlarge-window)
 (global-set-key (kbd "C-c C-j") 'joe/body)
+(global-set-key (kbd "C-c j t") 'treemacs)
 ; on trial
 (global-set-key (kbd "<f6>")
 		(lambda ()
