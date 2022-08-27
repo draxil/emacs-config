@@ -10,4 +10,5 @@
 			("*vterm*" :align below :popup t)
 			("*Go Test*" :align below :popup t)
 			)
-  ))
+	shackle-default-rule '(:select t)))
+
