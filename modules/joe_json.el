@@ -1,5 +1,6 @@
 ;; TODO a lot of these accept a region, but then use the region after changes
 ;; TODO should be elsewhere? and maybe only eval when js happens?
+;;;###autoload
 (defun json-to-single-line (beg end)
   "Collapse prettified json in region between BEG and END to a single line"
   (interactive "r")
@@ -11,7 +12,7 @@
           (while (re-search-forward "[[:space:]\n]+" nil t)
             (replace-match " "))))
     (print "This function operates on a region")))
-;; and these are WIP
+;;;###autoload
 (defun joe-deflate-escape-json (beg end)
     "make json one line and quote escape it"
   (interactive "r")
@@ -23,6 +24,7 @@
 	  ))
     )
   (print "This function operates on a region"))
+;;;###autoload
 (defun joe-inflate-de-escape-json (beg end)
     "reverse joe-deflate-escape-json"
   (interactive "r")
@@ -34,6 +36,7 @@
 	  ))
   (print "This function operates on a region")))
 
+;;;###autoload
 (defun joe-replace-json-buffer ()
   "clear buffer, paste json, make sure we're in js mode and format the json"
   (interactive)
@@ -42,6 +45,7 @@
   (json-pretty-print-buffer)
   (json-mode))
 
+;;;###autoload
 (defun joe-json-to-new-buffer ()
   "put json in a new buffer and format it"
   (interactive)
