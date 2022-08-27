@@ -10,9 +10,4 @@
 			("*vterm*" :align below :popup t)
 			("*Go Test*" :align below :popup t)
 			)
-	;; When we want "extreme" shackling
-	;;shackle-default-rule '(:same t))
-
-	;; hugely on trial:
-	shackle-default-rule '(:other t)
   ))
