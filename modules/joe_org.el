@@ -54,6 +54,9 @@
   (use-package orgit
     :straight t)
 
+  (use-package org-contrib
+    :straight t)
+
   ;; default to open links in same window not a new one:
   (setf (cdr (assoc 'file org-link-frame-setup)) 'find-file)
 
