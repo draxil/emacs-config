@@ -39,6 +39,13 @@
 (global-set-key (kbd "M-S-<up>") 'enlarge-window)
 (global-set-key (kbd "C-c C-j") 'joe/body)
 (global-set-key (kbd "C-c j t") 'treemacs)
+(global-set-key (kbd "C-c c r") 'consult-ripgrep)
+(global-set-key (kbd "C-c c a") 'consult-apropos)
+(global-set-key (kbd "C-c c l") 'consult-line)
+(global-set-key (kbd "C-c c L") 'consult-line-multi)
+(global-set-key (kbd "C-c c m") 'consult-mark)
+(global-set-key (kbd "C-c c g") 'consult-register)
+
 ; on trial
 (global-set-key (kbd "<f6>")
 		(lambda ()
