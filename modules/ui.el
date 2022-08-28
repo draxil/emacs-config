@@ -35,6 +35,10 @@
          :default-weight semilight
          :default-height 180
          :bold-weight extrabold)
+	(presentation
+         :default-weight semilight
+         :default-height 200
+         :bold-weight extrabold)
         (t ; our shared fallback properties
          :default-family "Hack"
          :default-weight normal
