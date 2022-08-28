@@ -45,6 +45,7 @@
 (global-set-key (kbd "C-c c L") 'consult-line-multi)
 (global-set-key (kbd "C-c c m") 'consult-mark)
 (global-set-key (kbd "C-c c g") 'consult-register)
+(bind-key "C-c f"  'fontaine-set-preset)
 
 ; on trial
 (global-set-key (kbd "<f6>")
