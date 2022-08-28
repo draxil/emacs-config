@@ -14,6 +14,15 @@
 ;; we don't want dialog boxes
 (setq use-dialog-box nil)
 
+(defun joe-load-default-theme ()
+  (interactive)
+  (load-theme 'ef-autumn :no-confirm))
+
+(defun joe-load-light-theme ()
+  (interactive)
+  (load-theme 'ef-day :no-confirm))
+
+
 ;; mixed pitch to allow buffers like org-mode to display variable
 ;; pitch where it makes sense and fixed in things like code blocks
 (use-package mixed-pitch
@@ -62,10 +71,3 @@
   (joe-load-default-theme)
   )
 
-(defun joe-load-default-theme ()
-  (interactive)
-  (load-theme 'ef-autumn :no-confirm))
-
-(defun joe-load-light-theme ()
-  (interactive)
-  (load-theme 'ef-day :no-confirm))
