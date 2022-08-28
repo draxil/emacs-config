@@ -40,7 +40,6 @@
          :default-weight normal
          :variable-pitch-family "Iosevka Aile"
          :variable-pitch-height 1.05)))
-  ;; TODO: think about variable pitch?
   (fontaine-set-preset 'regular))
 
 ;; ef-themes are nice colour themes that tie in to lots of emacs stuff nicely
