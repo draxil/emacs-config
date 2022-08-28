@@ -11,7 +11,32 @@
 (column-number-mode t)
 (size-indication-mode t)
 
-;; TODO: now we are using themes, perhaps weed some stuff from custom?
+;; we don't want dialog boxes
+(setq use-dialog-box nil)
+
+;; fontaine gives us easy font control and preset switching
+(use-package fontaine
+  :straight t
+  :config
+  (setq fontaine-presets
+      '((regular
+         :default-height 100)
+        (medium
+         :default-weight semilight
+         :default-height 140)
+        (large
+         :default-weight semilight
+         :default-height 180
+         :bold-weight extrabold)
+        (t ; our shared fallback properties
+         :default-family "Hack"
+         :default-weight normal
+         :variable-pitch-family "FiraGO"
+         :variable-pitch-height 1.05)))
+  ;; TODO: think about variable pitch?
+  (fontaine-set-preset 'regular))
+
+;; ef-themes are nice colour themes that tie in to lots of emacs stuff nicely
 (use-package "ef-themes"
   :straight t
   :config
@@ -24,11 +49,6 @@
 
   ;; Disable all other themes to avoid awkward blending:
   (mapc #'disable-theme custom-enabled-themes)
-  (load-theme 'ef-autumn :no-confirm)
+  (load-theme 'ef-autumn :no-confirm))
 
-  ;; TODO: think about variable pitch?
-  )
 
-;; TODO: fontaine?
-
-(setq use-dialog-box nil)
