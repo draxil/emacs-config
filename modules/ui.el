@@ -16,7 +16,3 @@
 
 (setq use-dialog-box nil)
 
-;; SUSPENDED: shackle is providing a way around
-;;(setq
-;;  split-width-threshold 9999999999
-;;  split-height-threshold 0)
