@@ -14,6 +14,13 @@
 ;; we don't want dialog boxes
 (setq use-dialog-box nil)
 
+;; mixed pitch to allow buffers like org-mode to display variable
+;; pitch where it makes sense and fixed in things like code blocks
+(use-package mixed-pitch
+  :straight t
+  :hook
+  (text-mode . mixed-pitch-mode))
+
 ;; fontaine gives us easy font control and preset switching
 (use-package fontaine
   :straight t
