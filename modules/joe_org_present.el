@@ -37,6 +37,7 @@
 			   (setq-local header-line-format " ")
 			   (turn-on-hide-mode-line-mode)
 			   (org-present-beginning)
+			   (joe-load-light-theme)
 			   ))
   (org-present-mode-quit .
 			      (lambda ()
@@ -49,4 +50,6 @@
 				(org-modern-mode 0)
 				(kill-local-variable 'header-line-format)
 				(kill-local-variable 'org-hide-leading-stars)
-				(turn-off-hide-mode-line-mode))))
+				(turn-off-hide-mode-line-mode)
+				(joe-load-default-theme)
+				)))

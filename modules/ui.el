@@ -59,6 +59,13 @@
 
   ;; Disable all other themes to avoid awkward blending:
   (mapc #'disable-theme custom-enabled-themes)
+  (joe-load-default-theme)
+  )
+
+(defun joe-load-default-theme ()
+  (interactive)
   (load-theme 'ef-autumn :no-confirm))
 
-
+(defun joe-load-light-theme ()
+  (interactive)
+  (load-theme 'ef-day :no-confirm))
