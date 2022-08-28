@@ -40,10 +40,6 @@
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
   (require 'use-package))
 
-
-;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/")
