@@ -38,7 +38,7 @@
         (t ; our shared fallback properties
          :default-family "Hack"
          :default-weight normal
-         :variable-pitch-family "FiraGO"
+         :variable-pitch-family "Iosevka Aile"
          :variable-pitch-height 1.05)))
   ;; TODO: think about variable pitch?
   (fontaine-set-preset 'regular))
