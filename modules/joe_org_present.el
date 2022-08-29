@@ -30,6 +30,8 @@
 			   (use-package "org-modern"
 			     :straight t)
 			   (org-modern-mode 1)
+			   (use-package "hide-mode-line"
+			     :straight t)
 			   (fontaine-set-preset 'large 1)
 			   (org-display-inline-images)
 			   ;;(org-present-hide-cursor)
