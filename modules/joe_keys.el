@@ -13,22 +13,22 @@
 (bind-key* "<f12>" 'joe-open-work-now-org)
 (global-set-key (kbd "C-<f12>") 'joe-open-work-org)
 (global-set-key (kbd "M-<f12>") 'joe-open-liff-now-org)
-(bind-key* "C-c <f12>" 'joe-open-liff-org)
+(bind-key "C-c <f12>" 'joe-open-liff-org)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c j o") 'joe-org-link-line-to-kill)
 (global-set-key (kbd "C-c j l") 'global-linum-mode)
 ;; toggle indent guides on & off
 (global-set-key (kbd "C-c j i") 'highlight-indent-guides-mode)
-;; OR MORE USEFUL:
 (global-set-key (kbd "C-c o s") 'org-store-link)
 ;; TODO: should not be global
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 (global-set-key (kbd "s-t") 'tab-bar-mode)
 (global-set-key (kbd "s-T") 'tab-bar-select-tab-by-name)
 (global-set-key (kbd "M-s-t") 'tab-bar-new-tab)
-(bind-key* "<f8>" 'notmuch)
-(bind-key* "<f4>" 'ace-window)
+(bind-key "<f8>" 'notmuch)
+(bind-key "<f4>" 'ace-window)
+(bind-key "C-'"  'avy-goto-char-2)
 
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 (global-set-key (kbd "C-c <up>") 'windmove-up)
