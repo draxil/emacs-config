@@ -3,5 +3,5 @@
 # key: <gosrc
 # --
 #+begin_src go
-	
+	    $1	
 #+end_src
