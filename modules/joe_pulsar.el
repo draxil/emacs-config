@@ -32,5 +32,5 @@
   (dolist (hook '(org-mode-hook emacs-lisp-mode-hook))
     (add-hook hook #'pulsar-mode))
   :bind
-  ("C-c h p" . 'pulsar-pulse-line)
-  ("C-c h h" . 'pulsar-highlight-line))
+  ("C-x l" . 'pulsar-pulse-line)
+  ("C-c h h" . 'pulsar-highlight-dwim))
