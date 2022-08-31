@@ -75,7 +75,10 @@
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((restclient . t)))
+   '(
+     (restclient . t)
+      (shell . t)
+     ))
   :bind
   (:map org-mode-map
 	("C-c o s" . org-insert-subheading)
