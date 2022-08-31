@@ -71,3 +71,9 @@
   (joe-load-default-theme)
   )
 
+;; Tabs - we use tabs as a set of "desktops" for switching between window layouts.
+;; as such we don't actually want to see a tab line:
+(setq tab-bar-show nil)
+(setq tab-bar-position nil)
+(tab-bar-mode -1)
+;; TODO: steal more of prot's ideas here?
