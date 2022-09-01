@@ -56,8 +56,8 @@
   (fontaine-set-preset 'regular))
 
 ;; ef-themes are nice colour themes that tie in to lots of emacs stuff nicely
-(use-package "ef-themes"
-  :straight t
+(use-package ef-themes
+  :straight (ef-themes :host nil :repo "https://git.sr.ht/~protesilaos/ef-themes" :type git :branch "main")
   :config
   ;; TODO more from https://protesilaos.com/emacs/ef-themes
 

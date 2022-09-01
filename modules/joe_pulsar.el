@@ -1,5 +1,5 @@
 (use-package pulsar
-  :straight t
+  :straight (pulsar :host nil :repo "https://git.sr.ht/~protesilaos/pulsar" :type git :branch "main")
   :config
   (setq pulsar-pulse-functions
 	'(recenter-top-bottom
@@ -19,12 +19,9 @@
           outline-previous-visible-heading
           outline-up-heading))
 
-  (setq pulsar-pulse-on-window-change t)
   (setq pulsar-pulse t)
   (setq pulsar-delay 0.055)
   (setq pulsar-iterations 10)
-  (setq pulsar-face 'pulsar-magenta)
-  (setq pulsar-highlight-face 'pulsar-yellow)
 
   (pulsar-global-mode 1)
 
@@ -33,4 +30,4 @@
     (add-hook hook #'pulsar-mode))
   :bind
   ("C-x l" . 'pulsar-pulse-line)
-  ("C-c h h" . 'pulsar-highlight-dwim))
+  ("C-c h" . 'pulsar-highlight-dwim))
