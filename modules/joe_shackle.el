@@ -9,6 +9,7 @@
 			("Vertico" :align below :popup t :regexp t)
 			("*vterm*" :align below :popup t)
 			("*Go Test*" :align below :popup t)
+			("*Gofmt Errors*" :align below :popup t)
 			)
 	shackle-default-rule '(:select t)))
 
