@@ -1,6 +1,5 @@
 (use-package dired-single
   :straight t
-  :defer 5
   :init
   (defun my-dired-init ()
     "Bunch of stuff to run for dired, either immediately or when it's
