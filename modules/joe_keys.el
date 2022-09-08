@@ -48,6 +48,9 @@
 (bind-key "C-c f"  'fontaine-set-preset)
 (bind-key "C-c j j" 'ace-window)
 
+;; for when we want eshell powers, perhaps make it pop like vterm at some point?
+(bind-key "M-<f2>" 'eshell)
+
 ; on trial
 (global-set-key (kbd "<f6>")
 		(lambda ()
