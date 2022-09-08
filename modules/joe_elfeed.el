@@ -9,6 +9,9 @@
     (elfeed-org)
     (setq rmh-elfeed-org-files (list "~/Nextcloud/org/elfeed.org"))
     :hook
-    (elfeed-db-update 'elfeed-db-save)
+    (elfeed-db-update . (lambda ()
+			  (message "doing elfeed hook")
+			  (elfeed-db-save)
+			  ))
     ))
  
