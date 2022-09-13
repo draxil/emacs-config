@@ -20,6 +20,7 @@
 	  (org-agenda-files :maxlevel . 2)
 	  (,(joe-org-file "work") :maxlevel . 2)
 	  (,(joe-org-file "liffarchive") :maxlevel . 1)
+	  (,(joe-org-file "pets"))
 	  ))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (advice-add 'org-clock-out :after 'org-save-all-org-buffers)
