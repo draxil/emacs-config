@@ -16,7 +16,7 @@
 
 (defun joe-load-default-theme ()
   (interactive)
-  (load-theme 'ef-autumn :no-confirm))
+  (load-theme 'ef-duo-dark :no-confirm))
 
 (defun joe-load-light-theme ()
   (interactive)
@@ -64,7 +64,7 @@
   ;; Make customisations that affect Emacs faces BEFORE loading a theme
   ;; (TODO) look at prots config in this chunk.
 
-  (setq ef-themes-to-toggle '(ef-autumn ef-deuteranopia-dark))
+  (setq ef-themes-to-toggle '(ef-autumn ef-deuteranopia-dark ef-duo-dark))
 
   ;; Disable all other themes to avoid awkward blending:
   (mapc #'disable-theme custom-enabled-themes)
