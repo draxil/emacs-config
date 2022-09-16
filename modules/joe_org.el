@@ -13,14 +13,14 @@
   (setq org-agenda-files
 	`(,(joe-org-file "liff")
 	  ,(joe-org-file "now")
-	  ,(joe-org-file "liffnow")))
+	  ,(joe-org-file "liffnow")
+	  ,(joe-org-file "pets")))
 
   (setq org-refile-targets
 	`((nil :maxlevel . 1)
 	  (org-agenda-files :maxlevel . 2)
 	  (,(joe-org-file "work") :maxlevel . 2)
 	  (,(joe-org-file "liffarchive") :maxlevel . 1)
-	  (,(joe-org-file "pets"))
 	  ))
   (advice-add 'org-refile :after 'org-save-all-org-buffers)
   (advice-add 'org-clock-out :after 'org-save-all-org-buffers)
