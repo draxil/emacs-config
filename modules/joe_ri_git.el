@@ -2,6 +2,10 @@
     (interactive "sName: ")
     (ri-new-branch name  "product-injector-api"))
 
+(defun ri-new-tools-branch (name)
+    (interactive "sName: ")
+    (ri-new-branch name  "product-injector-tools"))
+
 (defun ri-new-backbone-branch (name)
     (interactive "sName: ")
     (ri-new-branch name  "product-backbone-v2"))
