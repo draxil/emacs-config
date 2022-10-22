@@ -3,9 +3,9 @@
 
 (defvar my-remote-buffer-colors
   (let ((colors '(;;("red" "darkred")
-                  ("green" "darkgreen")
-                  ("blue" "darkblue")
-                  ("orange" "firebrick"))))
+                  ("green4" "darkgreen")
+                  ("blue3" "darkblue")
+                  ("dark orange" "firebrick"))))
     (setcdr (last colors) colors)
     colors)
   "Cyclic list of color combos to use for remote files. 
@@ -16,7 +16,7 @@ Elements are in the form: (active-background-color inactive-background-color).")
 
 
 ;;; MY OVERRIDES!
-(puthash "/ssh:pedev@ivorsaa7:" '("red" "darkred") my-assigned-remote-colors)
+(puthash "/ssh:pedev@ivorsaa7.memset.net:" '("red3" "darkred") my-assigned-remote-colors)
 
 
 
