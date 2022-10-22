@@ -15,8 +15,8 @@
 							      (default (:height 1.0) variable-pitch)
 							      (header-line (:height 4.5) variable-pitch)
 							      (org-document-title (:height 1.75) org-document-title)
-							      (org-code (:height 1.55) org-code)
-							      (org-verbatim (:height 1.55) org-verbatim)
+							      (org-code (:height 1.0) org-code)
+							      (org-verbatim (:height 1.0) org-verbatim)
 							      (org-block (:height 1.25) org-block)
 							      (org-block-begin-line (:height 0.7) org-block)
 							      )
@@ -32,7 +32,7 @@
 			   (org-modern-mode 1)
 			   (use-package "hide-mode-line"
 			     :straight t)
-			   (fontaine-set-preset 'large 1)
+			   (fontaine-set-preset 'large 't)
 			   (org-display-inline-images)
 			   ;;(org-present-hide-cursor)
 			   (org-present-read-only)
@@ -44,7 +44,7 @@
   (org-present-mode-quit .
 			      (lambda ()
 				(kill-local-variable 'face-remapping-alist)
-				(fontaine-set-preset 'regular 1)
+				(fontaine-set-preset 'regular 't)
 				(org-remove-inline-images)
 				;;(org-present-show-cursor)
 				(org-present-read-write)
