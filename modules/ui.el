@@ -30,9 +30,25 @@
   :hook
   (text-mode . mixed-pitch-mode))
 
+;; ef-themes are nice colour themes that tie in to lots of emacs stuff nicely
+(use-package ef-themes
+  :straight (ef-themes :host nil :repo "https://git.sr.ht/~protesilaos/ef-themes" :type git :branch "main")
+  :config
+  ;; TODO more from https://protesilaos.com/emacs/ef-themes
+
+  ;; Make customisations that affect Emacs faces BEFORE loading a theme
+  ;; (TODO) look at prots config in this chunk.
+
+  (setq ef-themes-to-toggle '(ef-autumn ef-deuteranopia-dark ef-duo-dark))
+
+  ;; Disable all other themes to avoid awkward blending:
+  (mapc #'disable-theme custom-enabled-themes)
+  (joe-load-default-theme)
+  )
+
 ;; fontaine gives us easy font control and preset switching
 (use-package fontaine
-  :straight t
+  :straight (fontaine-git :host nil :repo "https://git.sr.ht/~protesilaos/fontaine" :type git :branch "main")
   :config
   (setq fontaine-presets
       '((regular
@@ -55,21 +71,6 @@
          :variable-pitch-height 1.05)))
   (fontaine-set-preset 'regular))
 
-;; ef-themes are nice colour themes that tie in to lots of emacs stuff nicely
-(use-package ef-themes
-  :straight (ef-themes :host nil :repo "https://git.sr.ht/~protesilaos/ef-themes" :type git :branch "main")
-  :config
-  ;; TODO more from https://protesilaos.com/emacs/ef-themes
-
-  ;; Make customisations that affect Emacs faces BEFORE loading a theme
-  ;; (TODO) look at prots config in this chunk.
-
-  (setq ef-themes-to-toggle '(ef-autumn ef-deuteranopia-dark ef-duo-dark))
-
-  ;; Disable all other themes to avoid awkward blending:
-  (mapc #'disable-theme custom-enabled-themes)
-  (joe-load-default-theme)
-  )
 
 ;; Tabs - we use tabs as a set of "desktops" for switching between window layouts.
 ;; as such we don't actually want to see a tab line:
