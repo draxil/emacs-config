@@ -1,18 +1,19 @@
 ;; TODO a lot of these accept a region, but then use the region after changes
 ;; TODO should be elsewhere? and maybe only eval when js happens?
-;;;###autoload
+
 (defun json-to-single-line (beg end)
   "Collapse prettified json in region between BEG and END to a single line"
   (interactive "r")
   (if (use-region-p)
-      (save-excursion
-        (save-restriction
-          (narrow-to-region beg end)
-          (goto-char (point-min))
-          (while (re-search-forward "[[:space:]\n]+" nil t)
-            (replace-match " "))))
+      (json-pretty-print beg end t)
+      ;; (save-excursion
+      ;;   (save-restriction
+      ;;     (narrow-to-region beg end)
+      ;;     (goto-char (point-min))
+      ;;     (while (re-search-forward "[[:space:]\n]+" nil t)
+      ;;       (replace-match " "))))
     (print "This function operates on a region")))
-;;;###autoload
+
 (defun joe-deflate-escape-json (beg end)
     "make json one line and quote escape it"
   (interactive "r")
