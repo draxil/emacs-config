@@ -15,24 +15,22 @@
 							      (default (:height 1.0) variable-pitch)
 							      (header-line (:height 4.5) variable-pitch)
 							      (org-document-title (:height 1.75) org-document-title)
-							      (org-code (:height 1.0) org-code)
-							      (org-verbatim (:height 1.0) org-verbatim)
-							      (org-block (:height 1.25) org-block)
-							      (org-block-begin-line (:height 0.7) org-block)
+							      (org-code (:height 0.8) org-code)
+							      (org-verbatim (:height 0.8) org-verbatim)
+							      (org-block (:height 0.8) org-block)
+							      (org-block-begin-line (:height 0.9) org-block)
 							      )
 				       org-hide-leading-stars 't
 				       org-adapt-indentation 't
 				       org-fontify-whole-heading-line 't
 				       cursor-type 'box
 				       )
+			   (delete-other-windows)
 			   (olivetti-mode 1)
-			   ;; this is essentially a hack to fix org-presents UGLY handling of headings
-			   (use-package "org-modern"
-			     :straight t)
-			   (org-modern-mode 1)
+			   (olivetti-set-width 90)
 			   (use-package "hide-mode-line"
-			     :straight t)
-			   (fontaine-set-preset 'large 't)
+			      :straight t)
+			   (fontaine-set-preset 'large 1)
 			   (org-display-inline-images)
 			   ;;(org-present-hide-cursor)
 			   (org-present-read-only)
