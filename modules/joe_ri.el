@@ -128,3 +128,14 @@
   (make-directory "internal")
   (make-directory "internal/handler")
   (make-directory "internal/service"))
+
+
+(defvar ri-ticket-prefix "SVP" "prefix for a ticket number")
+
+(defun ri-ticket-to-org-link ()
+    (interactive)
+  (let* ((url "https://riverisland.atlassian.net/browse/SVP-2436")
+	 (ticket (substring url (string-match ri-ticket-prefix url) (length url)))
+	 )
+    (insert (concat "[[" url "][" ticket "]]"))
+    ))
