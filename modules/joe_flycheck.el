@@ -1,4 +1,5 @@
 (use-package flycheck
+  :straight t
   :defer 2
   :init
 ;  :hook ;;(web-mode . my/set-local-eslint)
@@ -23,7 +24,7 @@
 	(setq-local flycheck-javascript-eslint-executable eslint))))
   (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
   (add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup)
-  )
+ )
 
 (use-package flycheck-golangci-lint
   :straight t
