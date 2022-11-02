@@ -11,10 +11,17 @@
       ""
       (format "--focus \"%s\"" (shell-quote-argument rinj-ginkgo-extra-focus))))
 
+
 (defun rinj-set-extra-focus (focus)
   (interactive "sFOCUS: ")
-  (setq rinj-ginkgo-extra-focus focus)
+  (setq-local rinj-ginkgo-extra-focus focus)
   )
+
+(defun rinj-clear-extra-focus ()
+  (interactive)
+  (setq-local rinj-ginkgo-extra-focus "")
+  )
+
 
 ;; (define-transient-command rinj-test-menu ()
 ;;   "RI Injector Test"
