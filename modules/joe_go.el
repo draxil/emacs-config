@@ -1,4 +1,6 @@
 
+(defvar rinj-go-mode nil "are we in ri-injector type project?")
+
 (use-package go-mode
   :straight t
   :config
@@ -22,12 +24,11 @@
 		    'lsp
 		    'golangci-lint)
 		 )
-	       
 	       ))
   :bind (
 	 :map go-mode-map
 	      (
-	       ("C-c t t" . go-test-current-project)
+	       ("C-c t t" . joe-go-test-current-project)
 	       ("C-c t f" . go-test-current-test)
 	       ("C-c t u" . joe-go-test-unit-mode)
 	       ("M-s f" . (lambda()
@@ -35,11 +36,18 @@
 			    (consult-line "func ")))
 	       )))
 
+(defun joe-go-test-current-project ()
+  "Run tests in an appropreate way."
+  (interactive)
+  (if rinj-go-mode
+    (rinj-ginkgo)
+    (go-test-current-project)
+  ))
 
 ;; TODO make this a toggle
 (defun joe-go-test-all-tags ()
   (interactive)
-  (setq-local go-test-args "-tags=unit,'',integration"))
+  (setq-local go-test-args "-tags=unit,integration"))
 
 (defun joe-go-test-no-tag-mode ()
   (interactive)
