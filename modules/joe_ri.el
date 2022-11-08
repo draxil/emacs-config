@@ -134,8 +134,19 @@
 
 (defun ri-ticket-to-org-link ()
     (interactive)
-  (let* ((url "https://riverisland.atlassian.net/browse/SVP-2436")
+  (let* ((url (current-kill 1))
 	 (ticket (substring url (string-match ri-ticket-prefix url) (length url)))
 	 )
     (insert (concat "[[" url "][" ticket "]]"))
     ))
+
+(define-minor-mode
+  ri-injector-mode
+  "minor mode for working on project injector (mostly for snippet triggers)")
+  
+
+;; TODO: kill existing, or just show or something??
+(defun ri-inj-run-api ()
+  (interactive)
+  (async-shell-command "cd `git rev-parse --show-toplevel` && make run/refresh-api" "*ri-inj-api*"))
+
