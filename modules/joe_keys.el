@@ -49,6 +49,8 @@
 (bind-key "C-c j j" 'ace-window)
 ;; for when we explicitly don't want it in our kill ring
 (bind-key "C-S-w" 'delete-region)
+;; replace upcase-word with DWIM as it's much more flexible
+(bind-key "M-u" 'upcase-dwim)
 
 ;; for when we want eshell powers, perhaps make it pop like vterm at some point?
 (bind-key "M-<f2>" 'eshell)
