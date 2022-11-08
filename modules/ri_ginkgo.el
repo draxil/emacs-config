@@ -22,6 +22,11 @@
   (setq-local rinj-ginkgo-extra-focus "")
   )
 
+(defun rinj-current-extra-focus ()
+  (interactive)
+  (message rinj-ginkgo-extra-focus)
+  )
+
 
 ;; (define-transient-command rinj-test-menu ()
 ;;   "RI Injector Test"
