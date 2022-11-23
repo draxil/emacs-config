@@ -37,7 +37,6 @@
 	  ))
   (print "This function operates on a region")))
 
-;;;###autoload
 (defun joe-replace-json-buffer ()
   "clear buffer, paste json, make sure we're in js mode and format the json"
   (interactive)
@@ -46,7 +45,6 @@
   (json-pretty-print-buffer)
   (json-mode))
 
-;;;###autoload
 (defun joe-json-to-new-buffer ()
   "put json in a new buffer and format it"
   (interactive)

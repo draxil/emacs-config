@@ -12,7 +12,7 @@
   (setq-local show-trailing-whitespace t)
   :hook
   (go-mode . (lambda()
-	       (display-line-numbers-mode)
+	       (display-line-numbers-mode 1)
 	       (flyspell-prog-mode)
 	       (joe-go-test-all-tags)
 	       ;; TRYING INSTEAD OF ORIGAMI
@@ -24,6 +24,11 @@
 		    'lsp
 		    'golangci-lint)
 		 )
+
+	       ;; this should be done by gomode IMO, make goimports a safe choice
+	       ;; for gofmt, we use this in some dir-locals for projects that need this
+	       (add-to-list 'safe-local-variable-values
+			    '(gofmt-command . "goimports"))
 	       ))
   :bind (
 	 :map go-mode-map

@@ -1,6 +1,6 @@
 (defun ri-planning-anchor ()
   "the anchor point for our planning"
-  (encode-time '(0 0 0 17 3 2022 nil nil nil)))
+  (encode-time '(0 0 0 23 11 2022 nil nil nil)))
 
 (defun ri-date (time)
   ""
@@ -134,7 +134,7 @@
 
 (defun ri-ticket-to-org-link ()
     (interactive)
-  (let* ((url (current-kill 1))
+  (let* ((url (current-kill 0))
 	 (ticket (substring url (string-match ri-ticket-prefix url) (length url)))
 	 )
     (insert (concat "[[" url "][" ticket "]]"))
@@ -143,10 +143,8 @@
 (define-minor-mode
   ri-injector-mode
   "minor mode for working on project injector (mostly for snippet triggers)")
-  
 
-;; TODO: kill existing, or just show or something??
 (defun ri-inj-run-api ()
   (interactive)
-  (async-shell-command "cd `git rev-parse --show-toplevel` && make run/refresh-api" "*ri-inj-api*"))
+  (async-shell-command "cd `git rev-parse --show-toplevel` && make run/refresh-api && docker logs -f product-injector-api-injector-api-1" "*ri-inj-api*"))
 
