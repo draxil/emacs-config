@@ -19,4 +19,7 @@
 	(exec-path-from-shell-initialize)
 	)
 
+      ;; hard to type a hash on a mac keyboard 🤦‍♂️
+      (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
       )
