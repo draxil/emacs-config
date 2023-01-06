@@ -27,6 +27,21 @@
   (message rinj-ginkgo-extra-focus)
   )
 
+;; butchered stolen from ginkgo mode 
+(defun rinj-autofocus ()
+  (interactive)
+  (save-excursion
+	(while (not (looking-at ginkgo-containers-regexp))
+	  (backward-char))
+	(let ((start nil)
+		  (end nil))
+	  (search-forward "\"")
+	  (setq start (point))
+	  (search-forward "\"")
+	  (setq end (- (point) 1))
+	  (let ((focus (format "\"%s\""(buffer-substring-no-properties start end))))
+	    (rinj-set-extra-focus focus)
+	    ))))
 
 ;; (define-transient-command rinj-test-menu ()
 ;;   "RI Injector Test"
