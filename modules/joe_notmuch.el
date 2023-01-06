@@ -13,4 +13,11 @@
 		  (auto-fill-mode 1)
 		  ))
 
-  )
+   :bind (:map notmuch-common-keymap
+               ("c" . consult-notmuch)
+	       ("M" . consult-notmuch-address)
+	       ))
+
+
+(use-package consult-notmuch
+  :straight t)
