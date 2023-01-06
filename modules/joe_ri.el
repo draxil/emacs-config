@@ -146,5 +146,5 @@
 
 (defun ri-inj-run-api ()
   (interactive)
-  (async-shell-command "cd `git rev-parse --show-toplevel` && make run/refresh-api && docker logs -f product-injector-api-injector-api-1" "*ri-inj-api*"))
+  (async-shell-command "cd `git rev-parse --show-toplevel` && make run/refresh-api && docker logs --tail=1 -f product-injector-api-injector-api-1" "*ri-inj-api*"))
 
