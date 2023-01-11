@@ -57,3 +57,18 @@
   (save-excursion
     (save-restriction
       (delete-region (buffer-end 0) (buffer-end 1)))))
+
+(defun joe-newlines-to-spaces (beg end)
+  "newlines to spaces"
+  (interactive "r")
+    (if (use-region-p)
+	(joe-do-newlines-to-spaces beg end)
+      (joe-do-newlines-to-spaces (buffer-end 0) (buffer-end 1))))
+
+(defun joe-do-newlines-to-spaces (beg end)
+(save-excursion
+  (save-restriction
+    (narrow-to-region beg end)
+    (goto-char (point-min))
+    (while (re-search-forward "\n" nil t)
+      (replace-match " ")))))
