@@ -13,6 +13,7 @@
 	"*Go Test*"
 	"*rinj-ginkgo*"
 	"*Flycheck errors*"
+	"*ri-inj-api*"
         help-mode
         compilation-mode))
   ;; FUTURE: if we get a window controlling thing consider popper-display-control 'user
