@@ -31,6 +31,7 @@
    (setq vertico-cycle t)
   :bind
   ("M-y" . consult-yank-from-kill-ring)
+  ("M-o" . joe/orderless-no-split)
   )
 
 ;; Optionally use the `orderless' completion style. See
@@ -47,6 +48,14 @@
   (setq completion-styles '(orderless)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
+
+;; HACKY! couldn't quickly solve this so split on literal tab
+;; instead, gets what I want from this. But TODO better.
+;; ALSO TODO: doesn't work on ripgrep.
+(defun joe/orderless-no-split ()
+  "For the rest of the session match spaces"
+  (interactive)
+  (setq-local orderless-component-separator "	"))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
