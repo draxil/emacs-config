@@ -19,6 +19,7 @@
   (org-roam-setup)
   :bind (
 	 ("<f9>" . org-roam-node-find)
+	 ("M-<f9>" . consult-org-roam-search)
 	 ("<f5>". org-roam-dailies-goto-today)
 	 ("M-<f5>". org-roam-dailies-goto-yesterday)
 	 :map org-roam-mode-map
@@ -29,3 +30,6 @@
 	 (("C-c n i" . org-roam-node-insert))
 	 (("C-c n I" . org-roam-insert-immediate))
 	 ))
+
+(use-package consult-org-roam
+  :straight t)
