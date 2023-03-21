@@ -89,12 +89,8 @@
   )
 )
 
-;;;###autoload
 (defun joe-open-work-org () "" (interactive) (find-file (joe-org-file "work")))
-;;;###autoload
 (defun joe-open-work-now-org () "" (interactive) (find-file (joe-org-file "now")))
-;;;###autoload
 (defun joe-open-liff-org () "" (interactive) (find-file (joe-org-file "liff")))
-;;;###autoload
 (defun joe-open-liff-now-org () "" (interactive) (find-file (joe-org-file "liffnow")))
 
