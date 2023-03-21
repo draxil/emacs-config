@@ -140,6 +140,11 @@
     (insert (concat "[[" url "][" ticket "]]"))
     ))
 
+(defun ri-ticket-todo ()
+  (interactive)
+  (insert "* TODO ")
+  (ri-ticket-to-org-link))
+
 (define-minor-mode
   ri-injector-mode
   "minor mode for working on project injector (mostly for snippet triggers)")
