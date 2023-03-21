@@ -143,7 +143,8 @@
 (defun ri-ticket-todo ()
   (interactive)
   (insert "* TODO ")
-  (ri-ticket-to-org-link))
+  (ri-ticket-to-org-link)
+  (insert " "))
 
 (define-minor-mode
   ri-injector-mode
