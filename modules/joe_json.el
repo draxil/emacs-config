@@ -25,7 +25,7 @@
 	  ))
     )
   (print "This function operates on a region"))
-;;;###autoload
+
 (defun joe-inflate-de-escape-json (beg end)
     "reverse joe-deflate-escape-json"
   (interactive "r")
