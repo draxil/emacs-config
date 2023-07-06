@@ -10,6 +10,7 @@
 			("*vterm*" :align below :popup t)
 			("*Go Test*" :align below :popup t)
 			("*Gofmt Errors*" :align below :popup t)
+			("magit-diff" :select nil)
 			)
 	shackle-default-rule '(:select t)))
 
