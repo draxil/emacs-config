@@ -1,4 +1,5 @@
 (use-package yasnippet
+  :straight t
   :defer 2
   :diminish 'yas-minor-mode
   :config
