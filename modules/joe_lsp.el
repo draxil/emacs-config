@@ -3,7 +3,7 @@
   :commands (lsp lsp-deferred)
   :custom
   (lsp-ui-doc-show-with-cursor nil "dont want popups with cursor")
-  (lsp-go-env '((GOFLAGS . "-tags=unit,integration,acceptance")) "want unit tests etc")
+  (lsp-go-env '((GOFLAGS . "-tags=unit,integration,acceptance,integ_tests,unit_tests")) "want unit tests etc")
   :hook (
 	 (go-mode . lsp)
 	 (lsp-mode . lsp-enable-which-key-integration)
