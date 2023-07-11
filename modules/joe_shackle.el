@@ -11,7 +11,7 @@
 			("*Go Test*" :align below :popup t)
 			("*Gofmt Errors*" :align below :popup t)
 			("magit-diff" :select nil)
-			("magit" :select t :same t)
+			("Magit" :same t :regexp t)
 			)
 	shackle-default-rule '(:other t :align right)))
 
