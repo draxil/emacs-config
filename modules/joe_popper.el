@@ -4,6 +4,8 @@
   :bind (("C-#"   . popper-toggle-latest)
 	 ("C-~"   . popper-kill-latest-popup)
          ("M-#"   . popper-cycle)
+	 ;; alt keybind for mac mode, possibly disposable?
+	 ("C-`"   . popper-toggle-latest)
          ("C-M-#" . popper-toggle-type))
   :init
   (setq popper-reference-buffers
