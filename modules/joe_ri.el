@@ -130,12 +130,10 @@
   (make-directory "internal/service"))
 
 
-(defvar ri-ticket-prefix "SVP" "prefix for a ticket number")
-
 (defun ri-ticket-to-org-link ()
     (interactive)
   (let* ((url (current-kill 0))
-	 (ticket (substring url (string-match ri-ticket-prefix url) (length url)))
+	 (ticket (substring url (string-match "[^/]+$" url) (length url)))
 	 )
     (insert (concat "[[" url "][" ticket "]]"))
     ))
