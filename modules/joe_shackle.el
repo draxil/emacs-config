@@ -13,5 +13,7 @@
 			("magit-diff" :select nil :other t)
 			("Magit:" :same t :regexp t)
 			)
-	shackle-default-rule '(:other t :align right)))
+	shackle-default-rule '(:other t)
+	shackle-default-align 'right
+	))
 
