@@ -4,7 +4,7 @@
   :bind (("C-#"   . popper-toggle-latest)
 	 ("C-~"   . popper-kill-latest-popup)
          ("M-#"   . popper-cycle)
-	 ;; alt keybind for mac mode, possibly disposable?
+	 ;; alt keybind for mac mode, possibly disposable? TODO: should bind only on mac?
 	 ("C-`"   . popper-toggle-latest)
          ("C-M-#" . popper-toggle-type))
   :init
