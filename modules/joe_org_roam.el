@@ -31,5 +31,4 @@
 	 (("C-c n I" . org-roam-insert-immediate))
 	 ))
 
-(use-package consult-org-roam
-  :straight t)
+(use-package consult-org-roam)
