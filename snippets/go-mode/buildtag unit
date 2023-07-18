@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: buildtag unit
+# key: btu
+# --
+//go:build unit

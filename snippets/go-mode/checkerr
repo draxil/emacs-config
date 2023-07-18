@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: checkerr
+# key: ce
+# --
+func(t *testing.T, e error)

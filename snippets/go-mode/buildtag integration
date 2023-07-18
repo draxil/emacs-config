@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: buildtag integration
+# key: bti
+# --
+//go:build integration
