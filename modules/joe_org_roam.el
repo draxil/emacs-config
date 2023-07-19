@@ -1,4 +1,5 @@
 (use-package org-roam
+  :straight t
   :init
   (setq org-roam-v2-ack t)
   :diminish 'org-roam-mode
@@ -32,5 +33,6 @@
 	 ))
 
 (use-package consult-org-roam
-  :straight t)
+					:straight t
+  )
 

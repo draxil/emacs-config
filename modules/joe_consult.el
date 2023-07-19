@@ -4,7 +4,7 @@
 	("M-s s" . consult-line)
   )
   :config
-  (consult-customize
-   consult-yank-from-kill-ring
-   :preview-key (kbd "M-."))
-  )
+ (consult-customize
+  consult-yank-from-kill-ring
+  :preview-key '("M-.")
+  ))
