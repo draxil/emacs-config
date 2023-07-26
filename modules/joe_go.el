@@ -52,7 +52,7 @@
 ;; TODO make this a toggle
 (defun joe-go-test-all-tags ()
   (interactive)
-  (setq-local go-test-args "-tags=unit,integration,unit_tests,integration_tests"))
+  (setq-local go-test-args "-tags=unit,integration,unit_tests,integ_tests"))
 
 (defun joe-go-test-no-tag-mode ()
   (interactive)
@@ -60,7 +60,7 @@
 
 (defun joe-go-test-unit-mode ()
   (interactive)
-  (setq-local go-test-args "-tags=unit,integration,unit_tests"))
+  (setq-local go-test-args "-tags=unit,unit_tests"))
 
 
 (defun joe-go-generate ()

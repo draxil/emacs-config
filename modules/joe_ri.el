@@ -158,3 +158,16 @@
   (interactive)
   (async-shell-command "cd `git rev-parse --show-toplevel` && make reset-db" "*ri-inj-db*"))
 
+(defun ri-srv-run-dynamo ()
+  (interactive)
+  (if (buffer-live-p (get-buffer "*ri-dynamo*"))
+      (kill-buffer "*ri-dynamo*"))
+  (async-shell-command "cd `git rev-parse --show-toplevel` && docker rm -f ddb_local && docker run -p 8019:8000 --restart unless-stopped -d --name ddb-local amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb")
+  (setenv "LOCAL_DDB_ENDPOINT" "http://localhost:8019"))
+
+(defun ri-pre-commit-check ()
+  (interactive)
+  (let ((command (format "prj-make pre-commit-check")))
+    (message command)
+    (async-shell-command command "*pre-commit*")
+    ))
