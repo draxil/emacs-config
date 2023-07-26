@@ -162,7 +162,7 @@
   (interactive)
   (if (buffer-live-p (get-buffer "*ri-dynamo*"))
       (kill-buffer "*ri-dynamo*"))
-  (async-shell-command "cd `git rev-parse --show-toplevel` && docker rm -f ddb_local && docker run -p 8019:8000 --restart unless-stopped -d --name ddb-local amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb")
+  (async-shell-command "cd `git rev-parse --show-toplevel` && docker rm -f ddb-local && docker run -p 8019:8000 --restart unless-stopped -d --name ddb-local amazon/dynamodb-local -jar DynamoDBLocal.jar -sharedDb" "*ri-dynamo*")
   (setenv "LOCAL_DDB_ENDPOINT" "http://localhost:8019"))
 
 (defun ri-pre-commit-check ()
