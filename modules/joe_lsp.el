@@ -10,7 +10,11 @@
 	 )
   :config
   (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
-  )
+  :bind (
+	 :map lsp-command-map (
+			       ("d" . lsp-describe-thing-at-point)
+			       )
+))
 
 
 ;; Optional - provides fancier overlays.
