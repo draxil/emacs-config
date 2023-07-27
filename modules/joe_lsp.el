@@ -13,6 +13,7 @@
   :bind (
 	 :map lsp-command-map (
 			       ("d" . lsp-describe-thing-at-point)
+			       ("t" . lsp-find-type-definition)
 			       )
 ))
 
