@@ -18,6 +18,10 @@
     (interactive "sName: ")
     (ri-new-branch name  "svi-services"))
 
+(defun ri-new-platform-branch (name)
+    (interactive "sName: ")
+    (ri-new-branch name  "svi-platform"))
+
 (defun ri-repo-path (which)
   (concat joe-code-root "ri/" which))
 
