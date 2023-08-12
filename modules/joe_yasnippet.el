@@ -1,7 +1,7 @@
 (use-package yasnippet
   :straight t
   :defer 2
-  :diminish 'yas-minor-mode
+  :diminish 'yas
   :config
   (yas-global-mode 1)
 

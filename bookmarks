@@ -1,8 +1,22 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
+;;;; Emacs Bookmark Format Version 1;;;; -*- coding: utf-8-emacs; mode: lisp-data -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("odin:dev"
+(("ri htt"
+ (filename . "~/Nextcloud/work/ri/http/")
+ (front-context-string . "nedap.http\n  drw")
+ (rear-context-string . "54 25 Jul 17:24 ")
+ (position . 534))
+("svi-services"
+ (front-context-string . "Recent commits\nf")
+ (rear-context-string . " v0.1.780 (49)\n\n")
+ (position . 161)
+ (handler . magit--handle-bookmark)
+ (mode . magit-status-mode)
+ (filename . "/Users/joe.higton/code/ri/svi-services/")
+ (magit-hidden-sections
+  (unpushed . "@{upstream}..")))
+("odin:dev"
  (filename . "/ssh:office.printevolved.co.uk|ssh:pesys@192.168.1.17:/home/pesys/dev/pesystem/")
  (front-context-string . ".git\n  drwxr-xr-")
  (rear-context-string . "58 Nov  9 15:31 ")
@@ -18,10 +32,10 @@
  (rear-context-string . "49 Feb 28 16:31 ")
  (position . 318))
 ("org-capture-last-stored"
- (filename . "~/Dropbox/org-roam/20201130151617-sound_plan.org")
- (front-context-string . "#+title: sound p")
- (rear-context-string)
- (position . 1))
+ (filename . "~/Nextcloud/org-roam/20230729222551-ri_svi_howto.org")
+ (front-context-string . "\n* add users to ")
+ (rear-context-string . ": ri: SVI howto\n")
+ (position . 91))
 ("dev1"
  (filename . "/ssh:pedev@ivorsaa7:/home/system/testing/dev1/pesystem/")
  (front-context-string . ".git\n  drwxr-xr-")
@@ -53,8 +67,8 @@
  (rear-context-string . "96 Oct  7 16:24 ")
  (position . 204))
 ("org-refile-last-stored"
- (filename . "~/Dropbox/org/work/work.org")
- (front-context-string . "*** DONE MAYBE L")
- (rear-context-string . "\n  DO an admin?\n")
- (position . 98861))
+ (filename . "~/Nextcloud/org/work.org")
+ (front-context-string . "** DONE [[https:")
+ (rear-context-string . " import for Tom\n")
+ (position . 52356))
 )
