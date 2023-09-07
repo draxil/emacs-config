@@ -18,7 +18,12 @@
 	       ;; TRYING INSTEAD OF ORIGAMI
 	       (yafolding-mode)
 
-	       (eglot-ensure)
+	       ;; make sure golangci-lint is run after the lsp checker
+	       (if (bound-and-true-p lsp-mode)
+		   (flycheck-add-next-checker
+		    'lsp
+		    'golangci-lint)
+		 )
 
 	       ;; this should be done by gomode IMO, make goimports a safe choice
 	       ;; for gofmt, we use this in some dir-locals for projects that need this
