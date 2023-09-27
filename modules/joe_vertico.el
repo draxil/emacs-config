@@ -47,7 +47,9 @@
   ;; (setq orderless-style-dispatchers '(+orderless-dispatch))
   (setq completion-styles '(orderless)
         completion-category-defaults nil
-        completion-category-overrides '((file (styles partial-completion)))))
+        completion-category-overrides '((file (styles partial-completion))
+					(buffer (styles basic))
+					)))
 
 ;; HACKY! couldn't quickly solve this so split on literal tab
 ;; instead, gets what I want from this. But TODO better.
