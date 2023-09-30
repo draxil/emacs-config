@@ -53,6 +53,8 @@
 (bind-key "C-S-w" 'delete-region)
 ;; replace upcase-word with DWIM as it's much more flexible
 (bind-key "M-u" 'upcase-dwim)
+;; trial: try prot's convenient placement of this to see if it makes us use it
+(bind-key "M-o" 'delete-blank-lines)
 
 ;; for when we want eshell powers, perhaps make it pop like vterm at some point?
 (bind-key "M-<f2>" 'eshell)
