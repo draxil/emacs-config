@@ -12,8 +12,8 @@
   (define-key lsp-mode-map (kbd "C-c l") lsp-command-map)
   :bind (
 	 :map lsp-command-map (
-			       ("d" . lsp-describe-thing-at-point)
-			       ("t" . lsp-find-type-definition)
+			       ("s" . lsp-describe-thing-at-point)
+			       ("d" . lsp-find-type-definition)
 			       )
 ))
 
