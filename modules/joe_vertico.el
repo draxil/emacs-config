@@ -29,10 +29,11 @@
 
   ;; Optionally enable cycling for `vertico-next' and `vertico-previous'.
    (setq vertico-cycle t)
-  :bind
-  ("M-y" . consult-yank-from-kill-ring)
-  ("M-o" . joe/orderless-no-split)
-  )
+   :bind (
+	  :map vertico-map (
+			    ("M-y" . consult-yank-from-kill-ring)
+			    ("M-o" . joe/orderless-no-split)
+  )))
 
 ;; Optionally use the `orderless' completion style. See
 ;; `+orderless-dispatch' in the Consult wiki for an advanced Orderless style
