@@ -58,6 +58,7 @@
 ;; IDEA: bind these so they go next-last or something at the top level?
 (bind-key "ESC M-," 'backward-up-list)
 (bind-key "ESC M-." 'up-list)
+(bind-key "ESC M->" 'down-list)
 
 ;; for when we want eshell powers, perhaps make it pop like vterm at some point?
 (bind-key "M-<f2>" 'eshell)
