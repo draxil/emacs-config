@@ -59,6 +59,7 @@
 (bind-key "ESC M-," 'backward-up-list)
 (bind-key "ESC M-." 'up-list)
 (bind-key "ESC M->" 'down-list)
+(bind-key "ESC M-m" 'switch-to-minibuffer)
 
 ;; for when we want eshell powers, perhaps make it pop like vterm at some point?
 (bind-key "M-<f2>" 'eshell)
