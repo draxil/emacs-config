@@ -12,7 +12,3 @@
 	 ("C-S-s" . 'phi-search)
 	 ("C-S-r" . 'phi-search-backward)))
   )
-
-;; purely for mc at the moment, but see if it's okay to replace?
-(use-package phi-search
- :straight t)
