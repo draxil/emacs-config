@@ -1,7 +1,3 @@
-;; used to be just for multicursor, now just tying it!
+;; for multi-cursor, generally it's too buggy and misses some stuff from isearch
 (use-package phi-search
-  :straight t
-  :bind (
-	 ("C-s" . phi-search)
-	 ("C-r" . phi-search-backward)
-	 ))
+  :straight t)
