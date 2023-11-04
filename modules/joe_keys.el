@@ -68,8 +68,9 @@
 (bind-key "C-z" 'zap-to-char)
 
 (bind-key "C-c C-;" 'comment-or-uncomment-region)
+(bind-key "M-g i" 'consult-imenu)
 
-; on trial
+;; on trial
 (global-set-key (kbd "<f6>")
 		(lambda ()
 		  (interactive)
