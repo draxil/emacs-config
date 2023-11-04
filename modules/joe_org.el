@@ -94,3 +94,14 @@
 (defun joe-open-liff-org () "" (interactive) (find-file (joe-org-file "liff")))
 (defun joe-open-liff-now-org () "" (interactive) (find-file (joe-org-file "liffnow")))
 
+(defun joe-org-archive-done ()
+  (interactive)
+  ;; TODO: make method universal and just custom location
+  (if (string= (buffer-name) "liffnow.org")
+      (org-map-entries
+       (lambda ()
+	 (let ((org-archive-location "liffnowarch.org::* *RECENT*"))
+	   (org-archive-subtree)
+	   (setq org-map-continue-from (org-element-property :begin (org-element-at-point)))))
+       "/DONE" 'file))
+  (org-save-all-org-buffers))
