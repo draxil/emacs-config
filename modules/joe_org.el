@@ -86,6 +86,7 @@
 	("C-c o t" . org-set-tags-command)
 	("C-c o h" . org-hide-subtree)
 	("C-c o s" . org-store-link)
+	("C-c o a" . joe-org-archive-done)
   )
 )
 
@@ -96,12 +97,22 @@
 
 (defun joe-org-archive-done ()
   (interactive)
-  ;; TODO: make method universal and just custom location
-  (if (string= (buffer-name) "liffnow.org")
-      (org-map-entries
-       (lambda ()
-	 (let ((org-archive-location "liffnowarch.org::* *RECENT*"))
-	   (org-archive-subtree)
-	   (setq org-map-continue-from (org-element-property :begin (org-element-at-point)))))
+
+  ;; note this current default doesn't work:
+  (let ((org-archive-location (format "%s_archive.org::" (joe-bare-org-name) )))
+
+    (if (string= (buffer-name) "liffnow.org")
+	(setq org-archive-location "liffnowarch.org::* *RECENT*"))
+    (if (string= (buffer-name) "now.org")
+	(setq org-archive-location "work.org::* *RECENT*"))
+
+    (org-map-entries
+     (lambda ()
+       (org-archive-subtree)
+       (setq org-map-continue-from (org-element-property :begin (org-element-at-point))))
        "/DONE" 'file))
   (org-save-all-org-buffers))
+
+(defun joe-bare-org-name ()
+  (s-replace ".org" "" (buffer-name)))
+
