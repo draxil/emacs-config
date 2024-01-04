@@ -2,4 +2,4 @@
 # name: buildtag unit
 # key: btu
 # --
-//go:build unit
+//go:build unit_tests

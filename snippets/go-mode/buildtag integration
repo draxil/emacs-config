@@ -2,4 +2,4 @@
 # name: buildtag integration
 # key: bti
 # --
-//go:build integration
+//go:build integ_tests
