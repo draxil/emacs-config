@@ -114,5 +114,6 @@
   (org-save-all-org-buffers))
 
 (defun joe-bare-org-name ()
+  (require 's)
   (s-replace ".org" "" (buffer-name)))
 
