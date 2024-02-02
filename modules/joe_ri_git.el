@@ -30,6 +30,10 @@
   (interactive)
   (ri-new-branch-for-ticket "svi-services"))
 
+(defun ri-new-platform-branch-for-ticket ()
+  (interactive)
+  (ri-new-branch-for-ticket "svi-platform"))
+
 (defun ri-new-platform-branch (name)
     (interactive "sName: ")
     (ri-new-branch name  "svi-platform"))
