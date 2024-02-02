@@ -21,3 +21,8 @@
 
 (defun joe-work-get-current-support-sprint()
  (string-replace "\n" "" (shell-command-to-string  "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" and Summary ~ \"%Support Sprint%\"' --plain --columns id --no-headers")))
+
+
+(defun joe-work-current-tickets-like (this)
+  (string-split (shell-command-to-string  (concat "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" and Summary ~ \"%" this "%\"' --plain --columns id,summary --no-headers")) "\n" "\n"))
+

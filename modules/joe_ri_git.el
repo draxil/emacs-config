@@ -26,6 +26,10 @@
     (interactive (read-string "Name:" (joe-work-get-current-support-sprint)))
     (ri-new-branch name  "svi-platform"))
 
+(defun ri-new-service-branch-for-ticket ()
+  (interactive)
+  (ri-new-branch-for-ticket "svi-services"))
+
 (defun ri-new-platform-branch (name)
     (interactive "sName: ")
     (ri-new-branch name  "svi-platform"))
@@ -38,3 +42,7 @@
     (magit-call-git "fetch" "origin" "master")
     (magit-call-git "branch" name "origin/master")
     (magit-checkout name))
+
+
+(defun ri-new-branch-for-ticket (repo)
+  (ri-new-branch (read-string "Name:" (car (string-split (completing-read "Which: " (joe-work-current-tickets-like (read-string "Search: "))) "\t"))) repo))
