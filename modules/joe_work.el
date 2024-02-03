@@ -52,3 +52,7 @@
    (concat "jira issue view --plain " ticket)
    (concat "*" ticket "*")))
 
+;; Show the ticket for the id at point,
+(defun joe-work-show-jira-at-point ()
+  (interactive)
+  (joe-work-show-ticket (symbol-name (symbol-at-point))))
