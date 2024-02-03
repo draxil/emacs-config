@@ -30,12 +30,19 @@
 (defun joe-work-view-current-sprint ()
   (interactive)
   (joe-work-show-ticket
-   (joe-first-from-column-row
+   (joe-ticket-from-current-sprint)))
+
+(defun joe-insert-current-sprint-ticket ()
+    (interactive)
+    (insert (joe-ticket-from-current-sprint)))
+
+(defun joe-ticket-from-current-sprint ()
+  (joe-first-from-column-row
     (completing-read
      "Ticket: "
      (string-split
       (shell-command-to-string  "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\"' --plain --columns id,Summary --no-headers")
-      "\n" "\n")))))
+      "\n" "\n"))))
 
 (defun joe-first-from-column-row (row)
   (car (string-split row "\t")))
