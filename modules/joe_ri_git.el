@@ -18,13 +18,14 @@
     (interactive "sName: ")
     (ri-new-branch name  "svi-services"))
 
-(defun ri-new-service-branch-support (name)
-    (interactive (read-string "Name:" (joe-work-get-current-support-sprint)))
-    (ri-new-branch name  "svi-services"))
+(defun ri-new-service-branch-support ()
+    (interactive)
+    (ri-new-branch (read-string "Name: " (joe-work-get-current-support-sprint))  "svi-services"))
 
-(defun ri-new-platform-branch-support (name)
-    (interactive (read-string "Name:" (joe-work-get-current-support-sprint)))
-    (ri-new-branch name  "svi-platform"))
+(defun ri-new-platform-branch-support ()
+  (interactive)
+  (ri-new-branch (read-string "Name: " (joe-work-get-current-support-sprint))  "svi-platform"))
+
 
 (defun ri-new-service-branch-for-ticket ()
   (interactive)
