@@ -35,9 +35,7 @@
 (defun joe-work-view-3-amigos ()
   (interactive)
   (joe-work-show-ticket
-   (joe-ticket-from-jql "project = \"RET\" and labels = \"3_Amigos_Required\"")))
-
-
+   (joe-ticket-from-jql "project = \"RET\" and labels = \"3_Amigos_Required\" and status=\"To Do\"")))
 
 (defun joe-insert-current-sprint-ticket ()
     (interactive)
