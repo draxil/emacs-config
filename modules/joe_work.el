@@ -32,17 +32,26 @@
   (interactive)
   (joe-work-show-ticket
    (joe-ticket-from-current-sprint)))
+(defun joe-work-view-3-amigos ()
+  (interactive)
+  (joe-work-show-ticket
+   (joe-ticket-from-jql "project = \"RET\" and labels = \"3_Amigos_Required\"")))
+
+
 
 (defun joe-insert-current-sprint-ticket ()
     (interactive)
     (insert (joe-ticket-from-current-sprint)))
 
 (defun joe-ticket-from-current-sprint ()
+  (joe-ticket-from-jql "sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\""))
+
+(defun joe-ticket-from-jql (jql)
   (joe-first-from-column-row
     (completing-read
      "Ticket: "
      (string-split
-      (shell-command-to-string  "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\"' --plain --columns id,Summary --no-headers")
+      (shell-command-to-string  (concat "jira issue list -q '" jql "' --plain --columns id,Summary --no-headers"))
       "\n" "\n"))))
 
 (defun joe-first-from-column-row (row)
@@ -57,3 +66,4 @@
 (defun joe-work-show-jira-at-point ()
   (interactive)
   (joe-work-show-ticket (symbol-name (symbol-at-point))))
+
