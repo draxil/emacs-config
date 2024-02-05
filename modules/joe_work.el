@@ -24,7 +24,8 @@
 
 
 (defun joe-work-current-tickets-like (this)
-  (string-split (shell-command-to-string  (concat "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" and Summary ~ \"%" this "%\"' --plain --columns id,summary --no-headers")) "\n" "\n"))
+  ; dropped the this match temporarily as it wasn't working correctly, todofix.
+  (string-split (shell-command-to-string  (concat "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" ' --plain --columns id,summary --no-headers")) "\n" "\n"))
 
 
 (defun joe-work-view-current-sprint ()
