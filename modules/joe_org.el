@@ -98,19 +98,21 @@
 (defun joe-org-archive-done ()
   (interactive)
 
-  ;; note this current default doesn't work:
+  (require 'org-archive)
   (let ((org-archive-location (format "%s_archive.org::" (joe-bare-org-name) )))
 
     (if (string= (buffer-name) "liffnow.org")
 	(setq org-archive-location "liffnowarch.org::* *RECENT*"))
     (if (string= (buffer-name) "now.org")
-	(setq org-archive-location "work.org::* *RECENT*"))
+	(setq org-archive-location "worknowarch.org::* *RECENT*"))
 
     (org-map-entries
      (lambda ()
+       (message "%s" (org-get-heading))
        (org-archive-subtree)
        (setq org-map-continue-from (org-element-property :begin (org-element-at-point))))
-       "/DONE" 'file))
+     "LEVEL=1/DONE" 'file)
+    )
   (org-save-all-org-buffers))
 
 (defun joe-bare-org-name ()
