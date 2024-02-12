@@ -5,3 +5,15 @@
   (customize-set-value 'magit-diff-refine-hunk 'all)
 ;;					:straight t
   )
+
+(defun joe-git-commit-mode-hook ()
+  "When opening a commit, do this"
+
+  ;; Where there's nothing on the commit line, maybe insert a ticket
+  ;; looking thing from the branch
+  (when (not (word-at-point))
+    (let ((bn (magit-get-current-branch)))
+      (when (string-match "^\\([A-Z]\\{3\\}-[0-9]+\\)" bn)
+	(insert (format "%s " (match-string 1 bn)))))))
+
+(add-hook 'git-commit-mode-hook 'joe-git-commit-mode-hook)
