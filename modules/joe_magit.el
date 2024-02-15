@@ -16,4 +16,4 @@
       (when (string-match "^\\([A-Z]\\{3\\}-[0-9]+\\)" bn)
 	(insert (format "%s " (match-string 1 bn)))))))
 
-(add-hook 'git-commit-mode-hook 'joe-git-commit-mode-hook)
+(add-hook 'git-commit-setup-hook 'joe-git-commit-mode-hook)
