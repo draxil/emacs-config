@@ -1,6 +1,6 @@
 (defun capture-work ()
- (interactive)
- (org-capture nil "w"))
+  (interactive)
+  (org-capture nil "w"))
 
 ;; VERY PROVISIONAL, move key to keys?
 (global-set-key (kbd "C-x w") 'capture-work)
@@ -11,7 +11,8 @@
    (lambda ()
      (let ((org-archive-location "work.org::* *RECENT*"))
        (org-archive-subtree)
-       (setq org-map-continue-from (org-element-property :begin (org-element-at-point)))))
+       (setq org-map-continue-from
+             (org-element-property :begin (org-element-at-point)))))
    "/DONE" 'file)
   (org-save-all-org-buffers))
 
@@ -19,49 +20,58 @@
   (interactive)
   (insert (joe-work-get-current-support-sprint)))
 
-(defun joe-work-get-current-support-sprint()
- (string-replace "\n" "" (shell-command-to-string  "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" and Summary ~ \"%Support Sprint%\"' --plain --columns id --no-headers")))
+(defun joe-work-get-current-support-sprint ()
+  (string-replace
+   "\n" ""
+   (shell-command-to-string
+    "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" and Summary ~ \"%Support Sprint%\"' --plain --columns id --no-headers")))
 
 
 (defun joe-work-current-tickets-like (this)
   ; dropped the this match temporarily as it wasn't working correctly, todofix.
-  (string-split (shell-command-to-string  (concat "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" ' --plain --columns id,summary --no-headers")) "\n" "\n"))
+  (string-split
+   (shell-command-to-string
+    (concat
+     "jira issue list -q 'sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\" ' --plain --columns id,summary --no-headers"))
+   "\n" "\n"))
 
 
 (defun joe-work-view-current-sprint ()
   (interactive)
-  (joe-work-show-ticket
-   (joe-ticket-from-current-sprint)))
+  (joe-work-show-ticket (joe-ticket-from-current-sprint)))
 (defun joe-work-view-3-amigos ()
   (interactive)
   (joe-work-show-ticket
-   (joe-ticket-from-jql "project = \"RET\" and labels = \"3_Amigos_Required\" and status=\"To Do\"")))
+   (joe-ticket-from-jql
+    "project = \"RET\" and labels = \"3_Amigos_Required\" and status=\"To Do\"")))
 
 (defun joe-insert-current-sprint-ticket ()
-    (interactive)
-    (insert (joe-ticket-from-current-sprint)))
+  (interactive)
+  (insert (joe-ticket-from-current-sprint)))
 
 (defun joe-ticket-from-current-sprint ()
-  (joe-ticket-from-jql "sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\""))
+  (joe-ticket-from-jql
+   "sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\""))
 
 (defun joe-ticket-from-jql (jql)
   (joe-first-from-column-row
-    (completing-read
-     "Ticket: "
-     (string-split
-      (shell-command-to-string  (concat "jira issue list -q '" jql "' --plain --columns id,Summary --no-headers"))
-      "\n" "\n"))))
+   (completing-read
+    "Ticket: "
+    (string-split (shell-command-to-string
+                   (concat
+                    "jira issue list -q '"
+                    jql
+                    "' --plain --columns id,Summary --no-headers"))
+                  "\n" "\n"))))
 
 (defun joe-first-from-column-row (row)
   (car (string-split row "\t")))
 
 (defun joe-work-show-ticket (ticket)
-  (shell-command
-   (concat "jira issue view --plain " ticket)
-   (concat "*" ticket "*")))
+  (shell-command (concat "jira issue view --plain " ticket)
+                 (concat "*" ticket "*")))
 
 ;; Show the ticket for the id at point,
 (defun joe-work-show-jira-at-point ()
   (interactive)
   (joe-work-show-ticket (symbol-name (symbol-at-point))))
-
