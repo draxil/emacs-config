@@ -1,11 +1,14 @@
+
 (setq-default mode-line-format
-              '("%e" mode-line-front-space
+              `("%e" mode-line-front-space
                 (:propertize
                  (""
                   mode-line-mule-info
                   mode-line-client
                   mode-line-modified))
-                mode-line-frame-identification "%b" "   "
+                mode-line-frame-identification
+                "%b" ;; buffer name
+                "   "
                 "%l/%c" ;; line / column
                 " %n " ;; narrrow indicator
                 (vc-mode vc-mode) ;; vc info
