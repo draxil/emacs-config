@@ -1,0 +1,5 @@
+# -*- mode: go -*-
+# name: error context
+# key: cterr
+# --
+return fmt.Errorf("$1: %w", err)
