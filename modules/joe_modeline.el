@@ -19,6 +19,6 @@
       (if (buffer-modified-p)
           "*"
         (if buffer-read-only
-            "%"
+            "%%"
           "-"))))
 (put 'joe-modeline-file-indicator 'risky-local-variable t)
