@@ -5,4 +5,10 @@
     (setq str (replace-match "" t t str)))
   str)
 
-(use-package elisp-autofmt :straight t)
+(use-package
+ elisp-autofmt
+ :straight t
+ :config
+ (setq elisp-autofmt-on-save-p 'always)
+ (add-hook 'emacs-lisp-mode-hook 'elisp-autofmt-mode)
+ )
