@@ -13,15 +13,13 @@
 (defun svi--endpoint-carton ()
   (concat svi-bot-baseurl "/prod/api/v1/carton/complete"))
 
-;;;###autoload
 (defun svi-complete-receive-manifest ()
-  "Complete receive a manifest with the bot API"
+  "Complete receive a manifest with the bot API."
   (interactive)
   (when (not (boundp 'joe-secrets))
     (joe-load-secrets))
   (svi--call-bot (svi--endpoint-manifest) (svi--manifest-body)))
 
-;;;###autoload
 (defun svi-complete-receive-cartons (b e)
   "Complete receive cartons with the bot API, takes carton list from selected region or buffer."
   (interactive "r")
