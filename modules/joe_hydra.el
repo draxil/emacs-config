@@ -9,7 +9,7 @@
 *work*
 
 "
-  ("r" (capture-next-ri-planning) "capture planning")
+  ("r" (work-retro-menu/body) "retro / planning")
   ("b" (work-branch-menu/body) "new branch")
   ("q" nil "quit"))
 
@@ -45,3 +45,15 @@
   ("t" (ri-new-platform-branch-for-ticket) "ticket")
   ("s" (ri-new-platform-branch-support) "support")
   ("q" nil "quit")))
+
+(defhydra
+ work-retro-menu
+ (:exit t)
+ "
+*retro/planning
+
+Note in SVI want [n] \"next\" on planning day
+"
+ ("n" (ri-planning-retro-next) "next")
+ ("l" (ri-planning-retro) "last")
+ ("c" (capture-next-ri-planning) "capture"))
