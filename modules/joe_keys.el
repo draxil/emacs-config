@@ -71,6 +71,7 @@
 
 (bind-key "C-c C-;" 'comment-or-uncomment-region)
 (bind-key "M-g i" 'consult-imenu)
+(bind-key "C-x w" 'capture-work)
 
 ;; on trial
 (global-set-key

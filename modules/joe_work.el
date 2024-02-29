@@ -2,9 +2,6 @@
   (interactive)
   (org-capture nil "w"))
 
-;; VERY PROVISIONAL, move key to keys?
-(global-set-key (kbd "C-x w") 'capture-work)
-
 (defun joe-work-org-archive-done-tasks ()
   (interactive)
   (org-map-entries

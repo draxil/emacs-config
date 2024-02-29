@@ -11,6 +11,7 @@
 "
   ("r" (work-retro-menu/body) "retro / planning")
   ("b" (work-branch-menu/body) "new branch")
+  ("c" (capture-work) "capture")
   ("q" nil "quit"))
 
  (defhydra
