@@ -28,7 +28,7 @@
 (global-set-key (kbd "M-s-t") 'tab-bar-new-tab)
 (bind-key "<f8>" 'notmuch)
 (bind-key "<f4>" 'ace-window)
-(bind-key "C-'"  'avy-goto-char-2)
+(bind-key "C-'" 'avy-goto-char-2)
 
 (global-set-key (kbd "C-c <down>") 'windmove-down)
 (global-set-key (kbd "C-c <up>") 'windmove-up)
@@ -39,15 +39,17 @@
 (global-set-key (kbd "M-S-<up>") 'enlarge-window)
 (global-set-key (kbd "C-c C-j") 'joe/body)
 (global-set-key (kbd "C-c j t") 'treemacs)
-(global-set-key (kbd "C-c c r") (lambda  ()
-				  (interactive)
-				  (consult-ripgrep ".")))
+(global-set-key
+ (kbd "C-c c r")
+ (lambda ()
+   (interactive)
+   (consult-ripgrep ".")))
 (global-set-key (kbd "C-c c a") 'consult-apropos)
 (global-set-key (kbd "C-c c l") 'consult-line)
 (global-set-key (kbd "C-c c L") 'consult-line-multi)
 (global-set-key (kbd "C-c c m") 'consult-mark)
 (global-set-key (kbd "C-c c g") 'consult-register)
-(bind-key "C-c f"  'fontaine-set-preset)
+(bind-key "C-c f" 'fontaine-set-preset)
 (bind-key "C-c j j" 'ace-window)
 ;; for when we explicitly don't want it in our kill ring
 (bind-key "C-S-w" 'delete-region)
@@ -60,7 +62,7 @@
 (bind-key "ESC M-." 'up-list)
 (bind-key "ESC M->" 'down-list)
 (bind-key "ESC M-m" 'switch-to-minibuffer)
-
+(bind-key "C-c w" 'work-menu/body)
 ;; for when we want eshell powers, perhaps make it pop like vterm at some point?
 (bind-key "M-<f2>" 'eshell)
 
@@ -71,11 +73,13 @@
 (bind-key "M-g i" 'consult-imenu)
 
 ;; on trial
-(global-set-key (kbd "<f6>")
-		(lambda ()
-		  (interactive)
-		  (jump-to-register ?0)))
-(global-set-key (kbd "M-<f6>")
-		(lambda ()
-		  (interactive)
-		  (point-to-register ?0)))
+(global-set-key
+ (kbd "<f6>")
+ (lambda ()
+   (interactive)
+   (jump-to-register ?0)))
+(global-set-key
+ (kbd "M-<f6>")
+ (lambda ()
+   (interactive)
+   (point-to-register ?0)))
