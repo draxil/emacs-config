@@ -12,6 +12,7 @@
   ("r" (work-retro-menu/body) "retro / planning")
   ("b" (work-branch-menu/body) "new branch")
   ("c" (capture-work) "capture")
+  ("s" (joe-work-view-current-sprint) "current sprint")
   ("q" nil "quit"))
 
  (defhydra
