@@ -72,3 +72,8 @@
 (defun joe-work-show-jira-at-point ()
   (interactive)
   (joe-work-show-ticket (symbol-name (symbol-at-point))))
+
+(defun joe-my-jira ()
+  (interactive)
+  (joe-ticket-from-jql
+   "sprint in openSprints() and assignee = 6220ec42db58c1006879e625 "))

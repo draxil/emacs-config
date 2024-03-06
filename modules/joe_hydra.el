@@ -13,6 +13,7 @@
   ("b" (work-branch-menu/body) "new branch")
   ("c" (capture-work) "capture")
   ("s" (joe-work-view-current-sprint) "current sprint")
+  ("m" (joe-my-jira) "my jira tasks")
   ("q" nil "quit"))
 
  (defhydra
