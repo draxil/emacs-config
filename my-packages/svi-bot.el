@@ -8,10 +8,10 @@
 (require 'plz)
 
 (defun svi--endpoint-manifest ()
-  (concat svi-bot-baseurl "/prod/api/v1/manifest/complete"))
+  (concat svi-bot-baseurl "/api/v1/manifest/complete"))
 
 (defun svi--endpoint-carton ()
-  (concat svi-bot-baseurl "/prod/api/v1/carton/complete"))
+  (concat svi-bot-baseurl "/api/v1/carton/complete"))
 
 (defun svi-complete-receive-manifest ()
   "Complete receive a manifest with the bot API."
