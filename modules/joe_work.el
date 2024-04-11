@@ -46,6 +46,13 @@
   (interactive)
   (insert (joe-ticket-from-current-sprint)))
 
+;; TODO: version with summary
+(defun joe-insert-my-ticket-org-link ()
+  (interactive)
+  (ri-org-link-from-url
+   (concat
+    "https://riverisland.atlassian.net/browse/" (joe-my-jira))))
+
 (defun joe-ticket-from-current-sprint ()
   (joe-ticket-from-jql
    "sprint in openSprints() and Team = \"30d59576-b991-432c-a0f3-5b2ddb890128-104\""))

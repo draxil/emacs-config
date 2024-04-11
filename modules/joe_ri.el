@@ -133,10 +133,13 @@
 
 (defun ri-ticket-to-org-link ()
   (interactive)
-  (let* ((url (current-kill 0))
-         (ticket
-          (substring url (string-match "[^/]+$" url) (length url))))
+  (ri-org-link-from-url (current-kill 0)))
+
+(defun ri-org-link-from-url (url)
+  (let ((ticket
+         (substring url (string-match "[^/]+$" url) (length url))))
     (insert (concat "[[" url "][" ticket "]]"))))
+
 
 (defun ri-ticket-todo ()
   (interactive)
