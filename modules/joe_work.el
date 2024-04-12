@@ -51,7 +51,7 @@
   (interactive)
   (ri-org-link-from-url
    (concat
-    "https://riverisland.atlassian.net/browse/" (joe-my-jira))))
+    "https://riverisland.atlassian.net/browse/" (joe-my-tickets))))
 
 (defun joe-ticket-from-current-sprint ()
   (joe-ticket-from-jql
@@ -82,5 +82,8 @@
 
 (defun joe-my-jira ()
   (interactive)
+  (joe-work-show-ticket (joe-my-tickets)))
+
+(defun joe-my-tickets ()
   (joe-ticket-from-jql
    "sprint in openSprints() and assignee = 6220ec42db58c1006879e625 "))
