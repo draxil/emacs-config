@@ -17,7 +17,13 @@
 
   ;; workaround for notmuch tag issue
   (advice-add #'notmuch-read-tag-changes :filter-return (lambda (x) (mapcar #'string-trim x)))
-  
+
+  ;; multiform mode, behave differently for different commands
+  (vertico-multiform-mode)
+
+  (setq vertico-multiform-commands
+	;; Switch to buffer we always want the recent buffers at the top
+      '((switch-to-buffer (vertico-sort-function . vertico-sort-history-alpha))))
   
   ;; Grow and shrink the Vertico minibuffer
   ;;   (setq vertico-resize t)
