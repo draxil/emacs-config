@@ -34,6 +34,7 @@
 *new service branch*
 
 "
+  ("m" (ri-new-service-branch-for-my-ticket) "mine")
   ("t" (ri-new-service-branch-for-ticket) "ticket")
   ("s" (ri-new-service-branch-support) "support")
   ("q" nil "quit"))
@@ -45,6 +46,7 @@
 *new platform branch*
 
 "
+  ("m" (ri-new-platform-branch-for-my-ticket) "mine")
   ("t" (ri-new-platform-branch-for-ticket) "ticket")
   ("s" (ri-new-platform-branch-support) "support")
   ("q" nil "quit")))
