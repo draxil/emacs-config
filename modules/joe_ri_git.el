@@ -41,6 +41,14 @@
   (interactive)
   (ri-new-branch-for-ticket "svi-platform"))
 
+(defun ri-new-service-branch-for-my-ticket ()
+  (interactive)
+  (ri-new-branch-for-my-ticket "svi-services"))
+
+(defun ri-new-platform-branch-for-my-ticket ()
+  (interactive)
+  (ri-new-branch-for-my-ticket "svi-platform"))
+
 (defun ri-new-platform-branch (name)
   (interactive "sName: ")
   (ri-new-branch name "svi-platform"))
@@ -65,3 +73,6 @@
                                  (read-string "Search: ")))
                                "\t")))
    repo))
+
+(defun ri-new-branch-for-my-ticket (repo)
+  (ri-new-branch (read-string "Name: " (joe-my-tickets)) repo))
