@@ -178,3 +178,28 @@
   (let ((command (format "prj-make pre-commit-check")))
     (message command)
     (async-shell-command command "*pre-commit*")))
+
+(defun ri-inv-vault-command (env cmd)
+  (concat "aws-vault exec inv-" env " -- " cmd))
+
+(defun ri-prod-transfer-status (number)
+  (interactive "sNumber: ")
+  (message "%s"
+           (shell-command-to-string
+            (ri-inv-vault-command
+             "prod"
+             (concat
+              "bash -c 'echo "
+              number
+              " | svitools shipments odbms_transfer_status'")))))
+
+(defun ri-prod-carton-status (number)
+  (interactive "sNumber: ")
+  (message "%s"
+           (shell-command-to-string
+            (ri-inv-vault-command
+             "prod"
+             (concat
+              "bash -c 'echo "
+              number
+              " | svitools shipments odbms_carton_status'")))))
