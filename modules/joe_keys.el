@@ -73,6 +73,7 @@
 (bind-key "M-g i" 'consult-imenu)
 (bind-key "C-x w" 'capture-work)
 (bind-key "C-c o j" 'joe-work-show-jira-at-point)
+(bind-key "C-c o t" 'org-tags-view)
 
 ;; on trial
 (global-set-key
