@@ -18,6 +18,7 @@
     (joe-go-test-all-tags)
     ;; TRYING INSTEAD OF ORIGAMI
     (yafolding-mode)
+    (setq fill-column 100)
 
     ;; make sure golangci-lint is run after the lsp checker
     (if (bound-and-true-p lsp-mode)
