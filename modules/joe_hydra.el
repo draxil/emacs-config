@@ -37,6 +37,7 @@
   ("m" (ri-new-service-branch-for-my-ticket) "mine")
   ("t" (ri-new-service-branch-for-ticket) "ticket")
   ("s" (ri-new-service-branch-support) "support")
+  ("f" (ri-goto-fresh-services-master) "fresh master")
   ("q" nil "quit"))
 
  (defhydra
@@ -49,6 +50,7 @@
   ("m" (ri-new-platform-branch-for-my-ticket) "mine")
   ("t" (ri-new-platform-branch-for-ticket) "ticket")
   ("s" (ri-new-platform-branch-support) "support")
+  ("f" (ri-goto-fresh-platform-master) "fresh master")
   ("q" nil "quit")))
 
 (defhydra

@@ -62,6 +62,17 @@
   (magit-call-git "branch" name "origin/master")
   (magit-checkout name))
 
+(defun ri-goto-fresh-master (repo)
+  (magit (ri-repo-path repo))
+  (magit-call-git "pull" "origin" "master")
+  (magit-checkout "master"))
+
+(defun ri-goto-fresh-services-master ()
+  (interactive)
+  (ri-goto-fresh-master "svi-services"))
+(defun ri-goto-fresh-platform-master ()
+  (interactive)
+  (ri-goto-fresh-master "svi-platform"))
 
 (defun ri-new-branch-for-ticket (repo)
   (ri-new-branch
