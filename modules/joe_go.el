@@ -6,9 +6,9 @@
  go-mode
  :straight t
  :config
- (add-hook 'before-save-hook #'gofmt-before-save)
  (use-package gotest :straight t :config)
  (setq-local show-trailing-whitespace t)
+ (setq lsp-go-use-gofumpt t)
  :hook
  (go-mode
   .
@@ -23,6 +23,16 @@
     ;; make sure golangci-lint is run after the lsp checker
     (if (bound-and-true-p lsp-mode)
         (flycheck-add-next-checker 'lsp 'golangci-lint))
+
+    ;; pre save hook, don't just let go-mode do this as when in lsp we go there as easier use of gofumpt:
+    (add-hook 'before-save-hook (lambda ()
+				  (if lsp-mode
+				      (progn
+					(lsp-organize-imports)
+					(lsp-format-buffer))
+				    (gofmt-before-save)
+				    )))
+
 
     ;; this should be done by gomode IMO, make goimports a safe choice
     ;; for gofmt, we use this in some dir-locals for projects that need this
