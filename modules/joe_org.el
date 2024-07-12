@@ -125,3 +125,7 @@
 (defun joe-bare-org-name ()
   (require 's)
   (s-replace ".org" "" (buffer-name)))
+
+(defun joe-org-agenda-today ()
+  (interactive)
+  (org-agenda nil "a"))
