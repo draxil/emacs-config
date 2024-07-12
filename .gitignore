@@ -2,3 +2,5 @@
 \.\#session*
 /session.*
 org-clock-save.el
+custom.el
+bookmarks
