@@ -26,11 +26,17 @@
  ;; codeium local language server takes ~0.2s to start up
  ;; (add-hook 'emacs-startup-hook
  ;;  (lambda () (run-with-timer 0.1 nil #'codeium-init)))
+ (defun joe-codeium-suggest ()
+   (interactive)
+   (cape-capf-interactive #'codeium-completion-at-point))
 
  ;; :defer t ;; lazy loading, if you want
  (keymap-global-set
   "M-<iso-lefttab>"
-  (cape-capf-interactive #'codeium-completion-at-point))
+  (joe-codeium-suggest))
+  (keymap-global-set
+  "C-c s"
+  (joe-codeium-suggest))
  :config
  (setq use-dialog-box nil) ;; do not use popup boxes
 
