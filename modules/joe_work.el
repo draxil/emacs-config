@@ -46,12 +46,19 @@
   (interactive)
   (insert (joe-ticket-from-current-sprint)))
 
-;; TODO: version with summary
 (defun joe-insert-my-ticket-org-link ()
   (interactive)
   (ri-org-link-from-url
    (concat
     "https://riverisland.atlassian.net/browse/" (joe-my-tickets))))
+
+(defun joe-org-insert-my-ticket ()
+  (interactive)
+  (let ((my-ticket (joe-my-tickets)))
+    (ri-org-link-from-url
+     (concat "https://riverisland.atlassian.net/browse/" my-ticket))
+    (insert (concat " " (joe-work-describe-ticket my-ticket)))))
+
 
 (defun joe-ticket-from-current-sprint ()
   (joe-ticket-from-jql
@@ -70,10 +77,21 @@
 
 (defun joe-first-from-column-row (row)
   (car (string-split row "\t")))
+(defun joe-last-from-column-row (row)
+  (car (cdr (string-split row "\t"))))
 
 (defun joe-work-show-ticket (ticket)
   (shell-command (concat "jira issue view --plain " ticket)
                  (concat "*" ticket "*")))
+(defun joe-work-describe-ticket (ticket)
+  (chomp
+   (joe-last-from-column-row
+    (shell-command-to-string
+     (concat
+      "jira issue list --columns summary --plain --no-headers -q 'id="
+      ticket
+      "'")))))
+
 
 ;; Show the ticket for the id at point,
 (defun joe-work-show-jira-at-point ()
