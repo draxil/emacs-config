@@ -91,7 +91,7 @@
              (org-agenda-overriding-header "Now")))
            (agenda
             ""
-            ((org-agenda-span 'day)
+            ((org-agenda-span 2)
              (org-agenda-files
               '(,(joe-org-file "now") ,(joe-org-file "work")))))))))
 
