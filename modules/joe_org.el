@@ -82,7 +82,9 @@
   'org-babel-load-languages '((restclient . t) (shell . t)))
 
  (setq org-agenda-custom-commands
-       `(("b" "all beod TODOS" tags-todo "beod")
+       `(("b" "all beod TODOS" tags-todo "beod"
+          ((org-agenda-files
+            '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))))
          ("w" "work"
           ((tags-todo "beod")
            (todo
@@ -93,7 +95,22 @@
             ""
             ((org-agenda-span 2)
              (org-agenda-files
-              '(,(joe-org-file "now") ,(joe-org-file "work")))))))))
+              '(,(joe-org-file "now") ,(joe-org-file "work")))))))
+         ("l" "liff"
+          ((tags-todo
+            "beod"
+            ((org-agenda-files
+              '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))))
+           (todo
+            "TODO"
+            ((org-agenda-files '(,(joe-org-file "liffnow")))
+             (org-agenda-overriding-header "Now")))
+           (agenda
+            ""
+            ((org-agenda-span 2)
+             (org-agenda-files
+              '(,(joe-org-file "liffnow")
+                ,(joe-org-file "liff")))))))))
 
  :bind
  (:map
