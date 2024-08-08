@@ -29,6 +29,7 @@
 (bind-key "<f8>" 'notmuch)
 ;; goto today's agenda
 (bind-key "<f7>" 'joe-org-agenda-work)
+(bind-key "M-<f7>" 'joe-org-agenda-liff)
 (bind-key "<f4>" 'ace-window)
 (bind-key "C-'" 'avy-goto-char-2)
 

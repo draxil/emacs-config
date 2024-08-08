@@ -172,3 +172,8 @@
   "just show my work agenda"
   (interactive)
   (org-agenda nil "w"))
+
+(defun joe-org-agenda-liff ()
+  "just show my real-life agenda"
+  (interactive)
+  (org-agenda nil "l"))
