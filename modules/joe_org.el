@@ -109,8 +109,12 @@
             ""
             ((org-agenda-span 2)
              (org-agenda-files
-              '(,(joe-org-file "liffnow")
-                ,(joe-org-file "liff")))))))))
+              '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))))
+           (tags-todo
+            "weekend"
+            ((org-agenda-files
+              '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))
+             (org-agenda-overriding-header "weekend")))))))
 
  :bind
  (:map
