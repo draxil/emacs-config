@@ -25,6 +25,11 @@
 
  (setq org-tag-alist '())
 
+ (setq joe-work-org-files
+       (list (joe-org-file "work") (joe-org-file "now")))
+ (setq joe-liff-org-files
+       (list (joe-org-file "liff") (joe-org-file "liffnow")))
+
  ;; save org on some key actions where I really don't want to miss saving
  ;; FUTURE: be more selective?
  (advice-add 'org-refile :after 'org-save-all-org-buffers)
@@ -82,11 +87,16 @@
   'org-babel-load-languages '((restclient . t) (shell . t)))
 
  (setq org-agenda-custom-commands
-       `(("b" "all beod TODOS" tags-todo "beod"
-          ((org-agenda-files
-            '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))))
+       `(("b"
+          "all beod TODOS"
+          tags-todo
+          "beod"
+          ((org-agenda-files joe-work-org-files)))
          ("w" "work"
-          ((tags-todo "beod")
+          ((tags-todo
+            "beod"
+            ((org-agenda-files joe-work-org-files)
+             (org-agenda-overriding-header "Before EOD")))
            (todo
             "TODO"
             ((org-agenda-files '(,(joe-org-file "now")))
@@ -94,13 +104,17 @@
            (agenda
             ""
             ((org-agenda-span 2)
-             (org-agenda-files
-              '(,(joe-org-file "now") ,(joe-org-file "work")))))))
+             (org-agenda-overriding-header "Agenda")
+             (org-agenda-files joe-work-org-files)))
+           (todo
+            "BLOCK"
+            ((org-agenda-files joe-work-org-files)
+             (org-agenda-overriding-header "Blocked")))))
          ("l" "liff"
           ((tags-todo
             "beod"
-            ((org-agenda-files
-              '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))))
+            ((org-agenda-files joe-liff-org-files)
+             (org-agenda-overriding-header "Before EOD")))
            (todo
             "TODO"
             ((org-agenda-files '(,(joe-org-file "liffnow")))
@@ -108,12 +122,10 @@
            (agenda
             ""
             ((org-agenda-span 2)
-             (org-agenda-files
-              '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))))
+             (org-agenda-files joe-liff-org-files)))
            (tags-todo
             "weekend"
-            ((org-agenda-files
-              '(,(joe-org-file "liffnow") ,(joe-org-file "liff")))
+            ((org-agenda-files joe-liff-org-files)
              (org-agenda-overriding-header "weekend")))))))
 
  :bind
