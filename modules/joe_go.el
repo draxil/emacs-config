@@ -25,13 +25,24 @@
         (flycheck-add-next-checker 'lsp 'golangci-lint))
 
     ;; pre save hook, don't just let go-mode do this as when in lsp we go there as easier use of gofumpt:
-    (add-hook 'before-save-hook (lambda ()
-				  (if lsp-mode
-				      (progn
-					(lsp-organize-imports)
-					(lsp-format-buffer))
-				    (gofmt-before-save)
-				    )))
+    (add-hook
+     'before-save-hook
+     (lambda ()
+       ;; clumsy HACK! but the lsp organise was not cutting it and
+       ;; often gofmt is gofumpt now, which doesn't do goimports! So
+       ;; this is the short term fudge, go back to the lsp version
+       ;; when we can.
+       (if lsp-go-goimports-local
+           (let ((actual-gofmt gofmt-command)
+                 (actual-gofmt-args gofmt-args))
+             (setq gofmt-command "goimports")
+             (setq gofmt-args
+                   `(,(format "-local=%s" lsp-go-goimports-local)))
+             (gofmt)
+             (setq gofmt-command actual-gofmt)
+             (setq gofmt-command actual-gofmt-args))
+
+         (gofmt-before-save))))
 
 
     ;; this should be done by gomode IMO, make goimports a safe choice
