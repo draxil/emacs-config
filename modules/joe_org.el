@@ -22,6 +22,11 @@
          (org-agenda-files :maxlevel . 2)
          (,(joe-org-file "work") :maxlevel . 2)
          (,(joe-org-file "liffarchive") :maxlevel . 1)))
+
+ (setq org-tag-alist '())
+
+ ;; save org on some key actions where I really don't want to miss saving
+ ;; FUTURE: be more selective?
  (advice-add 'org-refile :after 'org-save-all-org-buffers)
  (advice-add 'org-clock-out :after 'org-save-all-org-buffers)
 
@@ -75,6 +80,21 @@
 
  (org-babel-do-load-languages
   'org-babel-load-languages '((restclient . t) (shell . t)))
+
+ (setq org-agenda-custom-commands
+       `(("b" "all beod TODOS" tags-todo "beod")
+         ("w" "work"
+          ((tags-todo "beod")
+           (todo
+            "TODO"
+            ((org-agenda-files '(,(joe-org-file "now")))
+             (org-agenda-overriding-header "Now")))
+           (agenda
+            ""
+            ((org-agenda-span 'day)
+             (org-agenda-files
+              '(,(joe-org-file "now") ,(joe-org-file "work")))))))))
+
  :bind
  (:map
   org-mode-map
@@ -127,5 +147,11 @@
   (s-replace ".org" "" (buffer-name)))
 
 (defun joe-org-agenda-today ()
+  "just show my agenda for today"
   (interactive)
   (org-agenda nil "a"))
+
+(defun joe-org-agenda-work ()
+  "just show my work agenda"
+  (interactive)
+  (org-agenda nil "w"))

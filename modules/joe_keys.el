@@ -28,7 +28,7 @@
 (global-set-key (kbd "M-s-t") 'tab-bar-new-tab)
 (bind-key "<f8>" 'notmuch)
 ;; goto today's agenda
-(bind-key "<f7>" 'joe-org-agenda-today)
+(bind-key "<f7>" 'joe-org-agenda-work)
 (bind-key "<f4>" 'ace-window)
 (bind-key "C-'" 'avy-goto-char-2)
 
