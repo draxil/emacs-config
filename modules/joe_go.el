@@ -28,21 +28,23 @@
     (add-hook
      'before-save-hook
      (lambda ()
-       ;; clumsy HACK! but the lsp organise was not cutting it and
-       ;; often gofmt is gofumpt now, which doesn't do goimports! So
-       ;; this is the short term fudge, go back to the lsp version
-       ;; when we can.
-       (if lsp-go-goimports-local
-           (let ((actual-gofmt gofmt-command)
-                 (actual-gofmt-args gofmt-args))
-             (setq gofmt-command "goimports")
-             (setq gofmt-args
-                   `(,(format "-local=%s" lsp-go-goimports-local)))
-             (gofmt)
-             (setq gofmt-command actual-gofmt)
-             (setq gofmt-command actual-gofmt-args))
 
-         (gofmt-before-save))))
+       (if (eq major-mode 'go-mode)
+	   ;; clumsy HACK! but the lsp organise was not cutting it and
+	   ;; often gofmt is gofumpt now, which doesn't do goimports! So
+	   ;; this is the short term fudge, go back to the lsp version
+	   ;; when we can.
+	   (if lsp-go-goimports-local
+               (let ((actual-gofmt gofmt-command)
+                     (actual-gofmt-args gofmt-args))
+		 (setq gofmt-command "goimports")
+		 (setq gofmt-args
+                       `(,(format "-local=%s" lsp-go-goimports-local)))
+		 (gofmt)
+		 (setq gofmt-command actual-gofmt)
+		 (setq gofmt-command actual-gofmt-args))
+	     
+             (gofmt-before-save)))))
 
 
     ;; this should be done by gomode IMO, make goimports a safe choice
