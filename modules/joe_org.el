@@ -25,6 +25,8 @@
 
  (setq org-tag-alist '())
 
+ (setq org-log-done 'time)
+
  (setq joe-work-org-files
        (list (joe-org-file "work") (joe-org-file "now")))
  (setq joe-liff-org-files
