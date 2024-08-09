@@ -1,6 +1,4 @@
 *~
-\.\#session*
-/session.*
-org-clock-save.el
-custom.el
 bookmarks
+custom.el
+org-clock-save.el
