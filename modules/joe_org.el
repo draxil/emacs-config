@@ -12,10 +12,12 @@
 
  (setq org-mobile-inbox-for-pull (joe-org-file "in"))
  (setq org-agenda-files
-       `(,(joe-org-file "liff")
-         ,(joe-org-file "now")
-         ,(joe-org-file "liffnow")
-         ,(joe-org-file "pets")))
+       (list
+        (joe-org-file "liff")
+        (joe-org-file "now")
+        (joe-org-file "liffnow")
+        (joe-org-file "pets")
+        (joe-org-file "gcal")))
 
  (setq org-refile-targets
        `((nil :maxlevel . 1)
