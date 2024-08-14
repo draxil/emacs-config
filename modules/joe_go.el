@@ -94,10 +94,11 @@
  :custom (ginkgo-flags "-tags=unit" "run unit tests by default"))
 
 (defun joe-go-save-hook ()
-  ;; clumsy HACK! but the lsp organise was not cutting it and
-  ;; often gofmt is gofumpt now, which doesn't do goimports! So
-  ;; this is the short term fudge, go back to the lsp version
-  ;; when we can.
+  ;; clumsy HACK!  We're usually using gofumpt now, which doesn't do
+  ;; goimports.  setting lsp-go-goimports-local is supposed to do this
+  ;; with lsp, but it doesn't work correctly. So, for now we lsp fmt
+  ;; and then switch to goimports in an ugly way and finish
+  ;; fmpting. When this is fixed in gopls, remove all this nonsense.
   (if (and lsp-go-goimports-local lsp-mode)
       (let ((actual-gofmt gofmt-command)
             (actual-gofmt-args gofmt-args))
