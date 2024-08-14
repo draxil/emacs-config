@@ -1,4 +1,3 @@
-
 (defvar rinj-go-mode nil
   "are we in ri-injector type project?")
 
@@ -28,23 +27,8 @@
     (add-hook
      'before-save-hook
      (lambda ()
-
        (if (eq major-mode 'go-mode)
-	   ;; clumsy HACK! but the lsp organise was not cutting it and
-	   ;; often gofmt is gofumpt now, which doesn't do goimports! So
-	   ;; this is the short term fudge, go back to the lsp version
-	   ;; when we can.
-	   (if lsp-go-goimports-local
-               (let ((actual-gofmt gofmt-command)
-                     (actual-gofmt-args gofmt-args))
-		 (setq gofmt-command "goimports")
-		 (setq gofmt-args
-                       `(,(format "-local=%s" lsp-go-goimports-local)))
-		 (gofmt)
-		 (setq gofmt-command actual-gofmt)
-		 (setq gofmt-command actual-gofmt-args))
-	     
-             (gofmt-before-save)))))
+           (joe-go-save-hook))))
 
 
     ;; this should be done by gomode IMO, make goimports a safe choice
@@ -108,3 +92,20 @@
  :straight
  (ginkgo-mode :type git :host github :repo "garslo/ginkgo-mode")
  :custom (ginkgo-flags "-tags=unit" "run unit tests by default"))
+
+(defun joe-go-save-hook ()
+  ;; clumsy HACK! but the lsp organise was not cutting it and
+  ;; often gofmt is gofumpt now, which doesn't do goimports! So
+  ;; this is the short term fudge, go back to the lsp version
+  ;; when we can.
+  (if (and lsp-go-goimports-local lsp-mode)
+      (let ((actual-gofmt gofmt-command)
+            (actual-gofmt-args gofmt-args))
+        (lsp-format-buffer)
+        (setq gofmt-command "goimports")
+        (setq gofmt-args
+              `(,(format "-local=%s" lsp-go-goimports-local)))
+        (gofmt)
+        (setq gofmt-command actual-gofmt)
+        (setq gofmt-args actual-gofmt-args))
+    (gofmt-before-save)))
