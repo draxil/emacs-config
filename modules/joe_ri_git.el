@@ -60,11 +60,11 @@
   (magit (ri-repo-path repo))
   (magit-call-git "fetch" "origin" "master")
   (magit-call-git "branch" name "origin/master")
-  (magit-checkout name))
+  (magit--checkout name))
 
 (defun ri-goto-fresh-master (repo)
   (magit (ri-repo-path repo))
-  (magit-checkout "master")
+  (magit--checkout "master")
   (magit-call-git "pull" "origin" "master"))
 
 (defun ri-goto-fresh-services-master ()
