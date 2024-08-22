@@ -32,7 +32,10 @@
  (setq joe-work-org-files
        (list (joe-org-file "work") (joe-org-file "now")))
  (setq joe-liff-org-files
-       (list (joe-org-file "liff") (joe-org-file "liffnow")))
+       (list
+        (joe-org-file "liff")
+        (joe-org-file "liffnow")
+        (joe-org-file "gcal")))
 
  ;; save org on some key actions where I really don't want to miss saving
  ;; FUTURE: be more selective?
