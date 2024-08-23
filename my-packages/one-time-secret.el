@@ -2,7 +2,7 @@
 
 (require 'plz)
 ;; replace request:
-(require 'request)
+(require 'url-util)
 
 ;;; Commentary:
 
@@ -18,13 +18,17 @@
 
 
 (defun ots--api-url (path)
-  "Make a onenetimesecret.com address"
+  "Make a onetimesecret.com address."
   (interactive)
   (concat "https://onetimesecret.com/api/v1/" path))
 
 
 (defun ots--make-request (method path &optional body)
-  "Make a onenetimesecret.com request"
+  "Make a oneetimesecret.com request.
+METHOD - an HTTP verb
+PATH - within oneetimesecret.com
+BODY - optional request body"
+
   ;; TODO: error handling
   (plz
    method
@@ -34,6 +38,7 @@
    :body body))
 
 (defun ots--key ()
+  "Build onetimesecret key."
   (let* ((details (auth-source-user-and-password "onetimesecret.com"))
          (user (pop details))
          (pass (pop details)))
@@ -46,24 +51,25 @@
        "Basic " (base64-encode-string (concat user ":" pass)))))))
 
 (defun ots--headers ()
-  "build headers for an ots request."
+  "Build headers for an ots request."
   `(("Authorization" . ,(ots--key))))
 
 (defun onetimesecret-check ()
-  "check onetimesecret is working"
+  "Check onetimesecret.com is working/up."
   (interactive)
   (message (alist-get 'status (ots--make-request 'get "status"))))
 
 (defun onetimesecret-share (secret)
-  "share a secret with interactve prompt, puts secret URL in the
-kill ring / clipboard"
+  "Share a SECRET with interactve prompt.
+Puts secret URL in the kill ring / clipboard"
   (interactive "sSecret to share: ")
   (kill-new (ots--share secret))
   (message "new secret URL ready to paste"))
 
 (defun onetimesecret-share-selected (start end)
   "Share the current region text as a onetimesecret.
-Puts the secret URL in the kill ring / clipboard."
+Puts the secret URL in the kill ring / clipboard.  If called
+non-interactively START and END are the bounds of the region."
   (interactive "r")
   (kill-new (ots--share (buffer-substring start end)))
   (message "new secret URL ready to paste"))
@@ -73,10 +79,10 @@ Puts the secret URL in the kill ring / clipboard."
 (defun ots--share (secret)
   (let ((req
          ;; TODO: don't use request!
-         (request--urlencode-alist
-          `((secret . ,secret)
+         (url-build-query-string
+          `((secret ,secret)
             ;; TODO: options?
-            (ttl . ,400)))))
+            (ttl ,400)))))
     ;; TODO: passphrase?
     ;; TODO recipient?
     ;;           (recipient . , "draxil@gmail.com")))))
@@ -84,3 +90,5 @@ Puts the secret URL in the kill ring / clipboard."
     (concat
      "https://onetimesecret.com/secret/"
      (alist-get 'secret_key (ots--make-request 'post "share" req)))))
+
+;;; one-time-secret.el ends here
