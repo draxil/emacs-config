@@ -15,6 +15,7 @@
        (list
         (joe-org-file "liff")
         (joe-org-file "now")
+        (joe-org-file "work")
         (joe-org-file "liffnow")
         (joe-org-file "pets")
         (joe-org-file "gcal")))
