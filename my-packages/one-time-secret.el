@@ -17,8 +17,11 @@
 (require 'auth-source)
 
 
+(defvar onetimesecret-default-ttl (* 60 60 48)
+  "Default time to live in seconds.")
+
 (defun ots--api-url (path)
-  "Make a onetimesecret.com address."
+  "Make a onetimesecret.com address, with PATH as the api path."
   (interactive)
   (concat "https://onetimesecret.com/api/v1/" path))
 
@@ -92,7 +95,7 @@ non-interactively START and END are the bounds of the region."
              ,(when recipient
                 `(recipient ,recipient))
              ;; TODO: options for ttl? default var as well?
-             (ttl ,400))))))
+             (ttl ,onetimesecret-default-ttl))))))
     ;; TODO: passphrase?
     (concat
      "https://onetimesecret.com/secret/"
