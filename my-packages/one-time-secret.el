@@ -64,7 +64,7 @@ BODY - optional request body"
 Puts secret URL in the kill ring / clipboard"
   (interactive "sSecret to share: ")
   (kill-new (ots--share secret))
-  (message "new secret URL ready to paste"))
+  (message "new secret URL ready to yank/paste"))
 
 (defun onetimesecret-share-selected (start end)
   "Share the current region text as a onetimesecret.
@@ -72,21 +72,28 @@ Puts the secret URL in the kill ring / clipboard.  If called
 non-interactively START and END are the bounds of the region."
   (interactive "r")
   (kill-new (ots--share (buffer-substring start end)))
-  (message "new secret URL ready to paste"))
+  (message "new secret URL ready to yank/paste"))
+
+(defun onetimesecret-send (secret email)
+  (interactive (let ((s (read-string "Secret to share: "))
+                     (e (read-string "Email to send it to: ")))
+                 (list s e)))
+  (ots--share secret email))
 
 
 ;; TODO opts
-(defun ots--share (secret)
+(defun ots--share (secret &optional recipient)
   (let ((req
          ;; TODO: don't use request!
          (url-build-query-string
-          `((secret ,secret)
-            ;; TODO: options?
-            (ttl ,400)))))
+          (remove
+           nil
+           `((secret ,secret)
+             ,(when recipient
+                `(recipient ,recipient))
+             ;; TODO: options for ttl? default var as well?
+             (ttl ,400))))))
     ;; TODO: passphrase?
-    ;; TODO recipient?
-    ;;           (recipient . , "draxil@gmail.com")))))
-
     (concat
      "https://onetimesecret.com/secret/"
      (alist-get 'secret_key (ots--make-request 'post "share" req)))))
