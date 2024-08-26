@@ -65,29 +65,45 @@ BODY - optional request body"
 (defun onetimesecret-share (secret)
   "Share a SECRET with interactve prompt.
 Puts secret URL in the kill ring / clipboard"
-  (interactive "sSecret to share: ")
+  (interactive (ots--interactive-share-args 't nil))
   (kill-new (ots--share secret))
   (message "new secret URL ready to yank/paste"))
 
-(defun onetimesecret-share-selected (start end)
+(defun onetimesecret-share-region (start end)
   "Share the current region text as a onetimesecret.
 Puts the secret URL in the kill ring / clipboard.  If called
 non-interactively START and END are the bounds of the region."
-  (interactive "r")
+  (interactive (ots--interactive-share-args nil nil))
   (kill-new (ots--share (buffer-substring start end)))
   (message "new secret URL ready to yank/paste"))
 
 (defun onetimesecret-send (secret email)
-  (interactive (let ((s (read-string "Secret to share: "))
-                     (e (read-string "Email to send it to: ")))
-                 (list s e)))
+  "Send a secret via email."
+  (interactive (ots--interactive-share-args 't 't))
   (ots--share secret email))
+
+(defun onetimesecret-send-region (start end email)
+  "Send the current region text as a onetimesecret.
+Puts the secret URL in the kill ring / clipboard.  If called
+non-interactively START and END are the bounds of the region,
+EMAIL is the email address to send it to."
+  (interactive (ots--interactive-share-args nil 't))
+  (ots--share (buffer-substring start end) email))
+
+(defun ots--interactive-share-args (promptsecret wantemail)
+  (let ((s
+         (if promptsecret
+             (list (read-string "Secret to share: "))
+           (list (region-beginning) (region-end))))
+        (e
+         (when wantemail
+           (list (read-string "Email to send it to: ")))))
+    (remove nil (append s e))))
 
 
 ;; TODO opts
 (defun ots--share (secret &optional recipient)
   (let ((req
-         ;; TODO: don't use request!
          (url-build-query-string
           (remove
            nil
