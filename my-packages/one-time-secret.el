@@ -62,33 +62,44 @@ BODY - optional request body"
   (interactive)
   (message (alist-get 'status (ots--make-request 'get "status"))))
 
-(defun onetimesecret-share (secret)
-  "Share a SECRET with interactve prompt.
-Puts secret URL in the kill ring / clipboard"
+(defun onetimesecret-share (secret &optional password)
+  "Share a secret with interactve prompt.
+When used non-interactively SECRET and optional PASSWORD are
+used.  Puts secret URL in the kill ring / clipboard"
   (interactive (ots--interactive-share-args 't nil))
-  (kill-new (ots--share secret))
+  (kill-new (ots--share secret nil password))
   (message "new secret URL ready to yank/paste"))
 
-(defun onetimesecret-share-region (start end)
+(defun onetimesecret-share-region (start end &optional password)
   "Share the current region text as a onetimesecret.
-Puts the secret URL in the kill ring / clipboard.  If called
-non-interactively START and END are the bounds of the region."
+If you supply the universal
+argument/prefix (\\[universal-argument]) you can provide a
+password to guard the secret.  Puts the secret URL in the kill
+ring / clipboard.  If called non-interactively START and END are
+the bounds of the region and PASSWORD sets the optional
+passphrase."
   (interactive (ots--interactive-share-args nil nil))
-  (kill-new (ots--share (buffer-substring start end)))
-  (message "new secret URL ready to yank/paste"))
+  (kill-new (ots--share (buffer-substring start end) nil password))
+  (message
+   "new secret URL
+ready to yank/paste"))
 
-(defun onetimesecret-send (secret email)
-  "Send a secret via email."
+(defun onetimesecret-send (secret email &optional password)
+  "Send a
+secret via email."
   (interactive (ots--interactive-share-args 't 't))
-  (ots--share secret email))
+  (ots--share secret email password))
 
-(defun onetimesecret-send-region (start end email)
+(defun onetimesecret-send-region (start end email &optional password)
   "Send the current region text as a onetimesecret.
-Puts the secret URL in the kill ring / clipboard.  If called
+Puts the secret URL in the kill ring / clipboard.  If you supply
+the universal argument/prefix (\\[universal-argument]) you can
+provide a password to guard the secret.  If called
 non-interactively START and END are the bounds of the region,
-EMAIL is the email address to send it to."
+EMAIL is the email address to send it to, and PASSWORD sets the
+optional passphrase."
   (interactive (ots--interactive-share-args nil 't))
-  (ots--share (buffer-substring start end) email))
+  (ots--share (buffer-substring start end) email password))
 
 (defun ots--interactive-share-args (promptsecret wantemail)
   (let ((s
@@ -97,12 +108,16 @@ EMAIL is the email address to send it to."
            (list (region-beginning) (region-end))))
         (e
          (when wantemail
-           (list (read-string "Email to send it to: ")))))
-    (remove nil (append s e))))
+           (list (read-string "Email to send it to: "))))
+        (p
+         (if current-prefix-arg
+             (list (read-passwd "Password: "))
+           (list nil))))
+    (remove nil (append s e p))))
 
 
 ;; TODO opts
-(defun ots--share (secret &optional recipient)
+(defun ots--share (secret &optional recipient password)
   (let ((req
          (url-build-query-string
           (remove
@@ -110,9 +125,10 @@ EMAIL is the email address to send it to."
            `((secret ,secret)
              ,(when recipient
                 `(recipient ,recipient))
+             ,(when password
+                `(passphrase ,password))
              ;; TODO: options for ttl? default var as well?
              (ttl ,onetimesecret-default-ttl))))))
-    ;; TODO: passphrase?
     (concat
      "https://onetimesecret.com/secret/"
      (alist-get 'secret_key (ots--make-request 'post "share" req)))))
