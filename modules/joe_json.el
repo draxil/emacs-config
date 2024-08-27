@@ -6,36 +6,34 @@
   (interactive "r")
   (if (use-region-p)
       (json-pretty-print beg end t)
-      ;; (save-excursion
-      ;;   (save-restriction
-      ;;     (narrow-to-region beg end)
-      ;;     (goto-char (point-min))
-      ;;     (while (re-search-forward "[[:space:]\n]+" nil t)
-      ;;       (replace-match " "))))
+    ;; (save-excursion
+    ;;   (save-restriction
+    ;;     (narrow-to-region beg end)
+    ;;     (goto-char (point-min))
+    ;;     (while (re-search-forward "[[:space:]\n]+" nil t)
+    ;;       (replace-match " "))))
     (print "This function operates on a region")))
 
 (defun joe-deflate-escape-json (beg end)
-    "make json one line and quote escape it"
+  "make json one line and quote escape it"
   (interactive "r")
   (if (use-region-p)
       (save-excursion
         (save-restriction
-	  (json-to-single-line beg end)
-	  (joe-escape-double-quotes (region-beginning) (region-end))
-	  ))
-    )
+          (json-to-single-line beg end)
+          (joe-escape-double-quotes
+           (region-beginning) (region-end)))))
   (print "This function operates on a region"))
 
 (defun joe-inflate-de-escape-json (beg end)
-    "reverse joe-deflate-escape-json"
+  "reverse joe-deflate-escape-json"
   (interactive "r")
   (if (use-region-p)
       (save-excursion
         (save-restriction
-	  (joe-de-escape-double-quotes beg end)
-	  (json-pretty-print (region-beginning) (region-end))
-	  ))
-  (print "This function operates on a region")))
+          (joe-de-escape-double-quotes beg end)
+          (json-pretty-print (region-beginning) (region-end))))
+    (print "This function operates on a region")))
 
 (defun joe-replace-json-buffer ()
   "clear buffer, paste json, make sure we're in js mode and format the json"
@@ -50,9 +48,15 @@
   (interactive)
   (switch-to-buffer (generate-new-buffer "pasted.json"))
   (joe-replace-json-buffer))
-  
 
-(use-package json-mode
-  :straight t
-  :config
-  (setq indent-tabs-mode nil))
+
+(use-package
+ json-mode
+ :straight t
+ :config
+ :hook
+ (json-mode
+  .
+  (lambda ()
+    (setq indent-tabs-mode nil)
+    (setq js-indent-level 2))))
