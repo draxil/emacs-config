@@ -13,6 +13,13 @@
 (defun svi--endpoint-carton ()
   (concat svi-bot-baseurl "/api/v1/carton/complete"))
 
+(defun svi--endpoint-carton-status ()
+  (concat svi-bot-baseurl "/api/v1/carton/status"))
+
+(defun svi--endpoint-manifest-status ()
+  (concat svi-bot-baseurl "/api/v1/manifest/status"))
+
+
 (defun svi-complete-receive-manifest ()
   "Complete receive a manifest with the bot API."
   (interactive)
@@ -27,10 +34,29 @@
     (joe-load-secrets))
   (svi--call-bot (svi--endpoint-carton) (svi-cartons-body b e)))
 
+(defun svi-manifest-status (id)
+  "Complete receive a manifest with the bot API."
+  (interactive "sManifestid: ")
+  (when (not (boundp 'joe-secrets))
+    (joe-load-secrets))
+  (svi--call-bot
+   (concat (svi--endpoint-manifest-status) "?id=" id) nil
+   'get))
+
+
+(defun svi-cartons-status (b e)
+  "Check status (B E beginning and end of region) or for the selected region interactively."
+  (interactive "r")
+  (when (not (boundp 'joe-secrets))
+    (joe-load-secrets))
+
+  ;;TODO tabular mode display
+  (svi--call-bot
+   (svi--endpoint-carton-status) (svi-cartons-body b e)))
+
 (defun svi--manifest-body ()
   `(("manifestIds" . (,(read-string "Manifest ID: ")))))
 
-;;;###autoload
 (defun svi-cartons-body (b e)
   `(("cartonIds" .
      ,(coerce
@@ -42,24 +68,32 @@
                       "\n"))
        'array))))
 
-(defun svi--call-bot (endpoint body)
+(defun svi--call-bot (endpoint body &optional method)
   "call the SVI bot API"
   (when (not (boundp 'joe-secrets))
     (joe-load-secrets))
-  (let ((json-body (json-encode body)))
-    (message "sending: %s" json-body)
-    (plz
-     'post endpoint
-     :headers
-     `(("Authorization" . ,(svi--bot-auth))
-       ("Content-Type" . "application/json"))
-     :body json-body
-     :as #'json-read
-     :then
-     (lambda (alist)
-       (message "DONE")
-       (message "OK I guess %s" alist))
-     :else 'svi--bot-error)))
+  (let ((plz-method
+         (if method
+             method
+           'post)))
+
+    (if body
+        (plz
+         plz-method endpoint
+         :headers
+         `(("Authorization" . ,(svi--bot-auth))
+           ("Content-Type" . "application/json"))
+         :body (json-encode body)
+         :as #'json-read
+         :then (lambda (alist) (message "OK I guess %s" alist))
+         :else 'svi--bot-error)
+      (plz
+       plz-method
+       endpoint
+       :headers `(("Authorization" . ,(svi--bot-auth)))
+       :as #'json-read
+       :then (lambda (alist) (message "OK I guess %s" alist))
+       :else 'svi--bot-error))))
 
 (defun svi--request-bot-auth ()
   (plz
