@@ -41,6 +41,10 @@
 (defvar my-package-dir (concat emacs-dir "my-packages/")
   "My packages")
 
+(defvar work-package-dir "~/Nextcloud/work/elisp"
+  "Work packages I don't want to check in.")
+
+
 (defvar module-dir (concat emacs-dir "modules/")
   "Where the real configuration happens")
 
@@ -50,6 +54,7 @@
 (add-to-list 'load-path vendor-dir)
 (add-to-list 'load-path module-dir)
 (add-to-list 'load-path my-package-dir)
+(add-to-list 'load-path work-package-dir)
 
 ;; Do use-package before modules
 (eval-when-compile
