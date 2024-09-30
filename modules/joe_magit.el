@@ -1,6 +1,7 @@
 (use-package
  magit
  :straight t
+ :commands (magit)
  :config
  ;; highlight diff inside lines
  (customize-set-value 'magit-diff-refine-hunk 'all))

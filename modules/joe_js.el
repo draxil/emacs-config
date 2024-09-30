@@ -1,5 +1,1 @@
-(use-package js
-  :hook
-  (js-mode .(lambda ()
-	      (yafolding-mode)
-	      )))
+(use-package js :hook (js-mode . (lambda () (yafolding-mode))))

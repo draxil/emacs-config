@@ -1,5 +1,6 @@
-(use-package unicode-fonts
-   :straight t
-   :config
-    (unicode-fonts-setup))
+(use-package
+ unicode-fonts
+ :straight t
+ :defer 10
+ :config (unicode-fonts-setup))
 ;; 😍
