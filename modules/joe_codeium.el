@@ -4,6 +4,7 @@
  ;; if you use straight
  :straight '(:type git :host github :repo "Exafunction/codeium.el")
  ;; otherwise, make sure that the codeium.el file is on load-path
+ :commands (joe-codeium-suggest)
 
  :init
  ;; use globally
@@ -31,12 +32,8 @@
    (cape-capf-interactive #'codeium-completion-at-point))
 
  ;; :defer t ;; lazy loading, if you want
- (keymap-global-set
-  "M-<iso-lefttab>"
-  (joe-codeium-suggest))
-  (keymap-global-set
-  "C-c s"
-  (joe-codeium-suggest))
+ (keymap-global-set "M-<iso-lefttab>" (joe-codeium-suggest))
+ (keymap-global-set "C-c s" (joe-codeium-suggest))
  :config
  (setq use-dialog-box nil) ;; do not use popup boxes
 
