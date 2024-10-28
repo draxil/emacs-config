@@ -65,8 +65,9 @@
 (defun ri-goto-fresh-master (repo)
   (magit (ri-repo-path repo))
   (magit-call-git "fetch" "origin" "master")
-  (magit-checkout "master")
-  (magit-call-git "pull" "origin" "master"))
+  (magit--checkout "master")
+  (magit-call-git "pull" "origin" "master")
+  (magit (ri-repo-path repo)))
 
 (defun ri-goto-fresh-services-master ()
   (interactive)
