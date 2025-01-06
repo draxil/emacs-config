@@ -3,6 +3,7 @@
 # key: tcs
 # --
 func Test$1 (t *testing.T){
+     t.Parallel()
 
      cases := []struct {
      	   name string
