@@ -1,9 +1,5 @@
 ;;; one-time-secret.el - interact with onetimesecret.com -*- lexical-binding: t -*-
 
-(require 'plz)
-;; replace request:
-(require 'url-util)
-
 ;;; Commentary:
 
 ;;; Generate secrets to share, and retrieve them, maybe?
@@ -14,6 +10,7 @@
 ;;; Code:
 
 (require 'plz)
+(require 'url-util)
 (require 'auth-source)
 
 
@@ -22,7 +19,6 @@
 
 (defun ots--api-url (path)
   "Make a onetimesecret.com address, with PATH as the api path."
-  (interactive)
   (concat "https://onetimesecret.com/api/v1/" path))
 
 
