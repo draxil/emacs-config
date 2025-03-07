@@ -79,6 +79,9 @@
 (bind-key "C-c o j" 'joe-work-show-jira-at-point)
 (bind-key "C-c o t" 'org-tags-view)
 (bind-key "C-c m" 'imenu)
+;; force make frame, because most C-x 5 blah commands are blocked by
+;; shackle, and this override fits in my brain:
+(bind-key "C-x 5 <return>" 'make-frame)
 
 ;; on trial
 (global-set-key
