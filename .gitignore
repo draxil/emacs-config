@@ -2,3 +2,10 @@
 bookmarks
 custom.el
 org-clock-save.el
+.cache
+.cask
+ellama-sessions
+eln-cache
+elpa
+emojis
+straight
