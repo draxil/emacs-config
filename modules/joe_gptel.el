@@ -13,7 +13,7 @@
             (auth-source-pick-first-password
              :host "workai"
              :user "apikey"))
-          :models '(anthropic.claude-3-haiku-20240307-v1:0)
+          :models '(gpt-4.1)
           :endpoint "/api/chat/completions"
           :stream 't))
    (setq gptel-expert-commands 't)
