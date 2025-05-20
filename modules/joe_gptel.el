@@ -13,7 +13,7 @@
             (auth-source-pick-first-password
              :host "workai"
              :user "apikey"))
-          :models '(gpt-4.1)
+          :models '(gpt-4o-mini)
           :endpoint "/api/chat/completions"
           :stream 't))
    (setq gptel-expert-commands 't)
