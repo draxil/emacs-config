@@ -6,7 +6,8 @@
  (lsp-ui-doc-show-with-cursor nil "dont want popups with cursor")
  (lsp-go-env
   '((GOFLAGS
-     . "-tags=unit,integration,acceptance,integ_tests,unit_tests"))
+     .
+     "-tags=unit,integration,acceptance,integ_tests,unit_tests,e2e"))
   "want unit tests etc")
  :hook
  ((go-mode . lsp)
