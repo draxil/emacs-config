@@ -2,4 +2,4 @@
 # name: ri mockgen
 # key: mg
 # --
-//go:generate mockgen -package $1 -source=$2.go -destination mocks/$2.go
+//go:generate go tool mockgen -package $1 -source=$2.go -destination mocks/$2.go
