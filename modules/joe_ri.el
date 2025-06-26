@@ -203,3 +203,8 @@
               "bash -c 'echo "
               number
               " | svitools shipments odbms_carton_status'")))))
+(defun what-release ()
+  (interactive)
+  (if (buffer-live-p (get-buffer "*svi-what-release*"))
+      (kill-buffer "*svi-what-release*"))
+  (async-shell-command "what_release.sh" "*svi-what-release*"))
