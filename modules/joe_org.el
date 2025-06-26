@@ -10,6 +10,7 @@
  :straight t
  :config
 
+ (setq org-use-speed-commands 't)
  (setq org-mobile-inbox-for-pull (joe-org-file "in"))
  (setq org-agenda-files
        (list
