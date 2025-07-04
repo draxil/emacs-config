@@ -60,3 +60,5 @@
   (lambda ()
     (setq indent-tabs-mode nil)
     (setq js-indent-level 2))))
+
+(use-package json-navigator :straight t)
