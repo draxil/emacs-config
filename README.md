@@ -1,3 +1,5 @@
+**Now on [codeberg](https://codeberg.org/draxil/emacs-config)** 
+
 emacs-config
 ============
 
